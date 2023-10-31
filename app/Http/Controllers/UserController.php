@@ -53,15 +53,19 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        return view('user.edit',[
+            'projects' => Project::all()
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, User $user)
-    {
-        //
+    {   
+        User::where('id', $user->id)->update($request);
+
+        return redirect("/users");
     }
 
     /**

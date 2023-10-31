@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Add new user</h1>
+        <h1 class="h2">Edit user</h1>
     </div>
 
     <div class="col-lg-8">
@@ -37,7 +37,7 @@
                     <option value="owner">Owner</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">Add user</button>
+            <button type="submit" class="btn btn-primary">Edit user</button>
         </form>
     </div>
 @endsection
