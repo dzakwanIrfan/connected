@@ -7,16 +7,16 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about">About Us</a>
+            <a class="nav-link" href="/about"></a>
           </li>
         </ul>
 
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login </a>
+            <a href="/login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i></a>
           </li>
         </ul>
       </div>
