@@ -20,15 +20,15 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('login.index');
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('login.index');
 });
 
 Route::get('/about', function (){
-    return view('about');
+    return view('login.index');
 });
 
 Route::get('/login', [LoginController::class,'index']);

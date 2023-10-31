@@ -37,9 +37,6 @@
               </div>
               <button class="btn btn-primary w-100 py-2 mt-3" type="submit">Login</button>
             </form>
-            <small class="d-block text-center mt-3">
-                Not Registered? <a href="/register" class="text-decoration-none">Register Now!</a>
-            </small>
         </main>
     </div>
 </div>
