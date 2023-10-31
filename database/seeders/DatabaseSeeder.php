@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Task;
+use App\Models\User;
+use App\Models\Project;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,11 +15,38 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        User::create([
+            'name' => 'Dzakwan Irfan Ramdhani',
+            'email' => 'dzakone07@gmail.com',
+            'role' => 'owner',
+            'password'=> bcrypt('12345'),
+        ]);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        User::factory(15)->create();
+
+        Project::create([
+            'nama_project' => 'Nuclear Project',
+            'deskripsi_project' => 'Membuat senjata nuklir untuk pemusnah alien',
+            'mulai' => '2023-10-31',
+            'selesai' => '2023-11-03'
+        ]);
+
+        Task::create([
+            'id_project' => '1',
+            'nama_task' => 'Membuat pangkalan militer',
+            'deskripsi_task' => 'Mencari tempat di Los Alamos untuk dijadikan markas militer',
+            'status' => 'Sedang dikerjakan',
+            'mulai' => '2023-10-31',
+            'selesai' => '2023-11-03'
+        ]);
+
+        Task::create([
+            'id_project' => '1',
+            'nama_task' => 'Merekrut ilmuan atom',
+            'deskripsi_task' => 'Merekrut Bohr dan Robert Oppenheimer',
+            'status' => 'Belum dikerjakan',
+            'mulai' => '2023-11-03',
+            'selesai' => '2023-11-06'
+        ]);
     }
 }
