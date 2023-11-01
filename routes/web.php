@@ -23,32 +23,30 @@ Route::get('/', function () {
     return view('login.index');
 });
 
-Route::get('/home', function () {
-    return view('login.index');
-});
-
-Route::get('/about', function (){
-    return view('login.index');
-});
-
-Route::get('/login', [LoginController::class,'index']);
+Route::get('/login', [LoginController::class,'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class,'authenticate']);
 Route::post('/logout', [LoginController::class,'logout']);
 
-Route::get('/register', [RegisterController::class,'index']);
-Route::post('/register', [RegisterController::class,'store']);
+// Route::get('/register', [RegisterController::class,'index']);
+// Route::post('/register', [RegisterController::class,'store']);
 
 Route::get('/dashboard', function(){
     return view('dashboard.index',[
         'projects' => Project::all()
     ]);
-});
+})->middleware('owner');
 
-Route::resource('/projects', ProjectController::class);
-Route::get('/projects/{project}/tasks', [TaskController::class, 'projectTasks']);
+Route::resource('/projects', ProjectController::class)->middleware('owner');
+Route::get('/projects/{project}/tasks', [TaskController::class, 'projectTasks'])->middleware('auth');
 
-Route::resource('/tasks', TaskController::class);
-Route::get('tasks/create/{task}', [TaskController::class,'create']);
+Route::resource('/tasks', TaskController::class)->middleware('auth');
+Route::get('tasks/create/{task}', [TaskController::class,'create'])->middleware('auth');
 
-Route::resource('/users', UserController::class);
+Route::resource('/users', UserController::class)->middleware('owner');
+
+Route::get('/workbench', function (){
+    return view('workbench.index', [
+        'projects' => Project::all()
+    ]);
+})->middleware('auth');
 

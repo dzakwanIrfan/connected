@@ -21,7 +21,7 @@
         @foreach ($projects as $project)
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link d-flex align-items-center gap-2 nav-link" href="/projects/{{ $project->id }}">
+                <a class="nav-link d-flex align-items-center gap-2 nav-link" href="/projects/{{ $project->id }}/tasks">
                     {{ $project->nama_project }}
                 </a>
             </li>

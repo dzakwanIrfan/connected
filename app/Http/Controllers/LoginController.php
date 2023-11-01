@@ -22,7 +22,14 @@ class LoginController extends Controller
         if(Auth::attempt($credentials))
         {
             $request->session()->regenerate();
-            return redirect()->intended('/dashboard');
+            if(Auth::user()->role == 'owner')
+            {
+                return redirect()->intended('/dashboard');
+            }
+            else if(Auth::user()->role == 'staff')
+            {
+                return redirect()->intended('/workbench');
+            }
         }
 
         return back()->with('loginError', 'Login Failed!');
@@ -36,6 +43,6 @@ class LoginController extends Controller
     
         $request->session()->regenerateToken();
     
-        return redirect('/home');
+        return redirect('/');
     }
 }
