@@ -8,6 +8,18 @@
       @foreach ($projects as $project)
       <div class="col-md-4 mb-3">
           <div class="card">
+              <div class="position-relative">
+                <form action="/projects/{{ $project->id }}" method="post" class="d-inline">
+                  @method('delete')
+                  @csrf
+                  <button class="hapus position-absolute bg-danger px-2 py-1 text-white" onclick="return confirm('Are you sure?');"><i class="bi bi-x-circle"></i></button>
+                </form>
+              </div>
+              <div class="position-relative">
+                <a href="/projects/{{ $project->id }}/edit" class="edit position-absolute bg-warning px-2 py-1 text-decoration-none text-white" style="left: 40px">
+                  <i class="bi bi-pencil"></i>
+                </a>
+              </div>
               <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="img-fluid">
               <div class="card-body">
                 <h5 class="card-title"><a href="/projects/{{ $project->id }}/tasks" class="text-decoration-none text-dark">{{ $project->nama_project }}</a></h5> 

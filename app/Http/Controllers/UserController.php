@@ -53,8 +53,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit',[
-            'projects' => Project::all()
+        return view('user.edit', [
+            'projects' => Project::all(),
+            'user' => $user
         ]);
     }
 
