@@ -38,10 +38,13 @@
           <td>{{ $task->mulai }}</td>
           <td>{{ $task->selesai }}</td>
           <td>
-            satu
-            <br><hr>
-            dua
-            <br><hr>
+            @if ($userTask->isNotEmpty())
+              @foreach ($userTask as $user)
+                  {{ $user->id_user->name }}
+              @endforeach
+            @else
+              <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
+            @endif
           </td>
           <td>
             <a href="/tasks/{{ $task->id }}/edit" class="badge bg-warning">

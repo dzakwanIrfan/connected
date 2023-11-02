@@ -17,9 +17,10 @@ class TaskController extends Controller
         // Ambil tugas-tugas yang terkait dengan proyek ini
         if(auth()->user()->role === 'owner'){
             $tasks = Task::where('id_project', $project->id)->get();
+            $userTask = UserTask::where('id_user', auth()->user()->id)->get();
         }else{
             $tasks = Task::where('id_project', $project->id)->get();
-            $userTask = UserTask::where('id_user', auth()->user()->id);
+            $userTask = UserTask::where('id_user', auth()->user()->id)->get();
         }
 
         return view('tasks.index', [
