@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\UserTask;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateTaskRequest;
 use Illuminate\Support\Facades\Storage;
@@ -14,11 +15,17 @@ class TaskController extends Controller
     public function projectTasks(Project $project)
     {
         // Ambil tugas-tugas yang terkait dengan proyek ini
-        $tasks = Task::where('id_project', $project->id)->get();
+        if(auth()->user()->role === 'owner'){
+            $tasks = Task::where('id_project', $project->id)->get();
+        }else{
+            $tasks = Task::where('id_project', $project->id)->get();
+            $userTask = UserTask::where('id_user', auth()->user()->id);
+        }
 
         return view('tasks.index', [
             'tasks' => $tasks,
-            'id_project' => $project->id
+            'project' => $project,
+            'userTask' => $userTask
         ]);
     }
 
