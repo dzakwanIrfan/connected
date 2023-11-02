@@ -43,7 +43,9 @@
                   {{ $user->id_user->name }}
               @endforeach
             @else
-              <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
+              @can('owner')
+                <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
+              @endcan
             @endif
           </td>
           <td>
