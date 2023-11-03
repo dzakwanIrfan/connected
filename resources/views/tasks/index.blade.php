@@ -40,8 +40,11 @@
           <td>
             @if ($userTask->isNotEmpty())
               @foreach ($userTask as $user)
-                  {{ $user->id_user }}
+                  {{ $user->id_user }} <br>
               @endforeach
+              @can('owner')
+                <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
+              @endcan
             @else
               @can('owner')
                 <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>

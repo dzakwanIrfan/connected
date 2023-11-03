@@ -37,10 +37,13 @@ class UserTaskController extends Controller
      */
     public function store(Request $request)
     {
+        $task = Task::find($request->task_id);
 
-        $id = $request->id_project;
+        $user = $request->user_id;
 
-        UserTask::create($request->all());
+        $task->users()->attach($user);
+
+        $id = $request->input('id_project');
 
         return redirect("/projects/$id/tasks");
     }

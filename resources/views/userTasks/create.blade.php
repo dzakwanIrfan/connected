@@ -9,9 +9,9 @@
         <form action="/user-task" method="post">
             @csrf
             <label for="user" class="mb-2 label">Pekerja</label>
-            <input type="hidden" name="id_task" value="{{ $task->id }}">
+            <input type="hidden" name="task_id" value="{{ $task->id }}">
             <input type="hidden" name="id_project" value="{{ $task->id_project }}">
-            <select name="id_user" class="form-select mb-2">
+            <select name="user_id" class="form-select mb-2">
                 @foreach ($users as $user)
                     <option value="{{ $user->id }}">{{ $user->name }}</option>
                 @endforeach
