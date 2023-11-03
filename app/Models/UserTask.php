@@ -10,4 +10,13 @@ class UserTask extends Model
     use HasFactory;
     protected $guarded = ['id'];
     protected $with = [];
+    public function users()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function tasks()
+    {
+        return $this->belongsTo(Task::class);
+    }
 }

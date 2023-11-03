@@ -27,7 +27,7 @@ class UserTaskController extends Controller
     {
         return view('userTasks.create',[
             'task' => Task::where('id', $request->task)->first(),
-            'users' => User::all(),
+            'users' => User::where('role', '<>', 'owner')->get(),
             'projects' => Project::all()
         ]);
     }
@@ -41,7 +41,8 @@ class UserTaskController extends Controller
 
         $user = $request->user_id;
 
-        $task->users()->attach($user);
+        // $task->users()->attach($user);
+        $task->users()->syncWithoutDetaching([$user]);
 
         $id = $request->input('id_project');
 

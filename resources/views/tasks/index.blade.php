@@ -38,19 +38,20 @@
           <td>{{ $task->mulai }}</td>
           <td>{{ $task->selesai }}</td>
           <td>
-            @if ($userTask->isNotEmpty())
-              @foreach ($userTask as $user)
-                  {{ $user->id_user }} <br>
-              @endforeach
-              @can('owner')
-                <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
-              @endcan
+            @if (isset($taskUsers[$task->id]) && $taskUsers[$task->id]->isNotEmpty())
+                @foreach ($taskUsers[$task->id] as $user)
+                    {{ $user->name }} <br>
+                @endforeach
+                @can('owner')
+                    <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
+                @endcan
             @else
-              @can('owner')
-                <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
-              @endcan
+                @can('owner')
+                    <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
+                @endcan
             @endif
           </td>
+        
           <td>
             <a href="/tasks/{{ $task->id }}/edit" class="badge bg-warning">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
