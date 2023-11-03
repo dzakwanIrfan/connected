@@ -1,12 +1,14 @@
 <?php
 
+use App\Models\User;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\ProjectController;
 // use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserTaskController;
 
 /*
@@ -47,10 +49,13 @@ Route::resource('/users', UserController::class)->middleware('owner');
 
 Route::get('/workbench', function (){
     return view('workbench.index', [
-        'projects' => Project::all()
+        'projects' => Project::all(),
+        'user' => User::where('id', auth()->id())->first()
     ]);
 })->middleware('auth');
 
 Route::resource('/user-task', UserTaskController::class)->middleware('owner');
 Route::get('/user-task/create/{task}', [UserTaskController::class,'create'])->middleware('auth');
+
+Route::resource('/profil', UserController::class)->middleware('staff');
 

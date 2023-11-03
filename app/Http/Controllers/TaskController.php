@@ -15,17 +15,17 @@ class TaskController extends Controller
     public function projectTasks(Project $project)
     {
         if(auth()->user()->role === 'owner'){
-            $tasks = Task::where('id_project', $project->id)->get();
+            $tasks = Task::with('project')->where('id_project', $project->id)->get();
         }else{
-            $userTask = UserTask::where('user_id', auth()->user()->id)->get();
+            $userTask = UserTask::with('users')->where('user_id', auth()->user()->id)->get();
             $taskIds = $userTask->pluck('task_id');
-            $tasks = Task::where('id_project', $project->id)->whereIn('id', $taskIds)->get();
+            $tasks = Task::with('Project')->where('id_project', $project->id)->whereIn('id', $taskIds)->get();
         }
         $taskUsers = [];
         // Ambil tugas-tugas yang terkait dengan proyek ini
         if(auth()->user()->role === 'owner'){
             foreach ($tasks as $task) {
-                $userTasks = UserTask::where('task_id', $task->id)->get();
+                $userTasks = UserTask::with('tasks')->where('task_id', $task->id)->get();
                 $users = User::whereIn('id', $userTasks->pluck('user_id'))->get();
         
                 $taskUsers[$task->id] = $users;

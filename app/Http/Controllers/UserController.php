@@ -45,7 +45,9 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return view('profil.index', [
+            'user' => User::where('id', auth()->user()->id)->first()
+        ]);
     }
 
     /**
@@ -53,10 +55,18 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit', [
-            'projects' => Project::all(),
-            'user' => $user
-        ]);
+        if(auth()->user()->role === 'owner')
+        {
+            return view('user.edit', [
+                'projects' => Project::all(),
+                'user' => $user
+            ]);
+        }else
+        {
+            return view('profil.edit', [
+                'user' => $user
+            ]);
+        }
     }
 
     /**
@@ -65,8 +75,14 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {   
         User::where('id', $user->id)->update($request);
-
-        return redirect("/users");
+        if(auth()->user()->role === 'owner')
+        {
+            return redirect("/users");
+        }else
+        {
+            return redirect("/profil");
+        }
+        
     }
 
     /**
