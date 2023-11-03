@@ -14,13 +14,12 @@ class TaskController extends Controller
 {
     public function projectTasks(Project $project)
     {
+        $tasks = Task::where('id_project', $project->id)->get();
         // Ambil tugas-tugas yang terkait dengan proyek ini
         if(auth()->user()->role === 'owner'){
-            $tasks = Task::where('id_project', $project->id)->get();
-            $userTask = UserTask::where('id_user', auth()->user()->id)->get();
+            $userTask = UserTask::whereIn('task_id', $tasks->pluck('id'))->get();
         }else{
-            $tasks = Task::where('id_project', $project->id)->get();
-            $userTask = UserTask::where('id_user', auth()->user()->id)->get();
+            $userTask = UserTask::where('user_id', auth()->user()->id)->get();
         }
 
         return view('tasks.index', [

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('user_tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_task')->constrained('tasks');
-            $table->foreignId('id_user')->constrained('users');
+            $table->foreignId('task_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

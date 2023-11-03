@@ -40,7 +40,7 @@
           <td>
             @if ($userTask->isNotEmpty())
               @foreach ($userTask as $user)
-                  {{ $user->id_user->name }}
+                  {{ $user->id_user }}
               @endforeach
             @else
               @can('owner')

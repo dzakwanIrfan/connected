@@ -51,5 +51,6 @@ Route::get('/workbench', function (){
     ]);
 })->middleware('auth');
 
-Route::resource('user-task', UserTaskController::class)->middleware('owner');
+Route::resource('/user-task', UserTaskController::class)->middleware('owner');
+Route::get('/user-task/create/{task}', [UserTaskController::class,'create'])->middleware('auth');
 

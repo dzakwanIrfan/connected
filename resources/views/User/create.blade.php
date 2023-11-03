@@ -18,7 +18,7 @@
               @enderror
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Nama</label>
+                <label for="password" class="form-label"></label>
                 <input type="hidden" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required autofocus value="12345">
             </div>
             <div class="mb-3">

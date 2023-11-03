@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\UserTask;
+use App\Models\Task;
+use App\Models\Project;
+use App\Models\User;
 use App\Http\Requests\StoreUserTaskRequest;
 use App\Http\Requests\UpdateUserTaskRequest;
+use Illuminate\Http\Request;
 
 class UserTaskController extends Controller
 {
@@ -19,17 +23,26 @@ class UserTaskController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        return view('userTasks.create',[
+            'task' => Task::where('id', $request->task)->first(),
+            'users' => User::all(),
+            'projects' => Project::all()
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserTaskRequest $request)
+    public function store(Request $request)
     {
-        //
+
+        $id = $request->id_project;
+
+        UserTask::create($request->all());
+
+        return redirect("/projects/$id/tasks");
     }
 
     /**

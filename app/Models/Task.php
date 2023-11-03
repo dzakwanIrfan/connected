@@ -16,7 +16,7 @@ class Task extends Model
         return $this->belongsTo(Project::class);
     }
 
-    Public function User()
+    Public function users()
     {
         return $this->belongsToMany(User::class);
     }
