@@ -76,4 +76,10 @@
       </tbody>
     </table>
   </div>
+  @can('staff')
+    <a href="/suggestions/create?id_project={{ $task->id_project }}">Add suggestion</a>
+  @endcan
+  @can('owner')
+    <a href="/suggestions/{{ $task->id_project }}">Suggestions</a>
+  @endcan
 @endsection

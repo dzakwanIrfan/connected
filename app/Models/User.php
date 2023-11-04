@@ -43,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Task::class, 'user_tasks');
     }
+
+    public function Suggestion()
+    {
+        return $this->hasMany(Suggestion::class, 'suggestions');
+    }
 }

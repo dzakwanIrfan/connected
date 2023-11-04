@@ -18,4 +18,9 @@ class Project extends Model
     {
         return $this->hasMany(Task::class);
     }
+
+    public function Suggestion()
+    {
+        return $this->hasMany(Suggestion::class, 'suggestions');
+    }
 }

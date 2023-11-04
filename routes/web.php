@@ -9,6 +9,7 @@ use App\Http\Controllers\LoginController;
 // use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\UserTaskController;
 
 /*
@@ -56,4 +57,7 @@ Route::get('/workbench', function (){
 
 Route::resource('/user-task', UserTaskController::class)->middleware('owner');
 Route::get('/user-task/create/{task}', [UserTaskController::class,'create'])->middleware('auth');
+
+Route::resource('/suggestions', SuggestionController::class)->middleware('auth');
+
 
