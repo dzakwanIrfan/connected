@@ -19,6 +19,7 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->role }}</td>
                 <td>
+                    <a href="/users/{{ $user->id }}" class="badge bg-success"><i class="bi bi-eye"></i></a>
                     <a href="/users/{{ $user->id }}/edit" class="badge bg-warning"><i class="bi bi-pencil"></i></a>
                     <form action="/users/{{ $user->id }}" method="post" class="d-inline">
                       @method('delete')
