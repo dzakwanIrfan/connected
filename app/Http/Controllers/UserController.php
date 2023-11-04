@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -46,7 +47,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         return view('profil.index', [
-            'user' => User::where('id', auth()->user()->id)->first()
+            'user' => User::where('id', $user->id)->first()
         ]);
     }
 
@@ -64,8 +65,8 @@ class UserController extends Controller
         }else
         {
             return view('profil.edit', [
-                'user' => $user
-            ]);
+            'user' => $user
+        ]);
         }
     }
 
@@ -74,13 +75,17 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {   
-        User::where('id', $user->id)->update($request);
+        $validated = $request->validate([
+            'name' => 'required',
+            'email'=> 'required'
+        ]);
+        User::where('id', $user->id)->update($validated);
         if(auth()->user()->role === 'owner')
         {
             return redirect("/users");
         }else
         {
-            return redirect("/profil");
+            return redirect("/users/$user->id");
         }
         
     }

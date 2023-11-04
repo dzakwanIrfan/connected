@@ -7,7 +7,7 @@
             <img src="https://source.unsplash.com/500x500?profile" class="img-fluid img-thumbnail">
         </div>
         <div class="col col-10">
-            <form action="/profil/{{ $user->id }}" method="post">
+            <form action="/users/{{ $user->id }}" method="post">
                 @method('put')
                 @csrf
                 <table class="table table-sm">
@@ -20,6 +20,11 @@
                         <td>Email</td>
                         <td>:</td>
                         <td><input type="email" name="email" value="{{ old('email', $user->email) }}"></td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>:</td>
+                        <td><input type="password" name="password" value="" placeholder="New password"></td>
                     </tr>
                     <tr>
                         <td></td>

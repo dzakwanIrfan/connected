@@ -45,7 +45,7 @@ Route::get('/projects/{project}/tasks', [TaskController::class, 'projectTasks'])
 Route::resource('/tasks', TaskController::class)->middleware('auth');
 Route::get('tasks/create/{task}', [TaskController::class,'create'])->middleware('auth');
 
-Route::resource('/users', UserController::class)->middleware('owner');
+Route::resource('/users', UserController::class)->middleware('auth');
 
 Route::get('/workbench', function (){
     return view('workbench.index', [
@@ -56,6 +56,4 @@ Route::get('/workbench', function (){
 
 Route::resource('/user-task', UserTaskController::class)->middleware('owner');
 Route::get('/user-task/create/{task}', [UserTaskController::class,'create'])->middleware('auth');
-
-Route::resource('/profil', UserController::class)->middleware('staff');
 

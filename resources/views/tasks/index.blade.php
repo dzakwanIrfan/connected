@@ -40,7 +40,7 @@
           <td>
             @if (isset($taskUsers[$task->id]) && $taskUsers[$task->id]->isNotEmpty())
                 @foreach ($taskUsers[$task->id] as $user)
-                    {{ $user->name }} <br>
+                    <a href="/users/{{ $user->id }}" class="text-black text-decoration-none">{{ $user->name }}</a> <br>
                 @endforeach
                 @can('owner')
                     <small><a href="/user-task/create/{{ $task->id }}" class="badge bg-primary text-decoration-none">Tambahkan pekerja</a></small>
