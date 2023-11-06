@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -77,8 +78,10 @@ class UserController extends Controller
     {   
         $validated = $request->validate([
             'name' => 'required',
-            'email'=> 'required'
+            'email'=> 'required',
         ]);
+
+        $validated['password'] = Hash::make($request->password);
         User::where('id', $user->id)->update($validated);
         if(auth()->user()->role === 'owner')
         {
