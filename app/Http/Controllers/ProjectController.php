@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Suggestion;
 use App\Models\Task;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,13 @@ class ProjectController extends Controller
             'selesai' => $project->selesai,
         ];
 
+        $suggestion = [
+            'project_id' => $project->id,
+            'user_id' => '1',
+            'suggestion' => 'Contoh saran'
+        ];
+
+        Suggestion::create($suggestion);
         Task::create($taskData);
 
         return redirect('/dashboard');

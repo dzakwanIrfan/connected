@@ -47,9 +47,9 @@ class SuggestionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Suggestion $suggestion)
+    public function show(Suggestion $suggestion, Request $request)
     {
-        $suggestions = Suggestion::where('project_id', $suggestion->project_id)->get   ();
+        $suggestions = Suggestion::where('project_id', $request->id_project)->get();
         return view('suggestions.index', [
             'suggestions' => $suggestions
         ]);

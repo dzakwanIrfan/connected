@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Task;
 use App\Models\User;
 use App\Models\Project;
+use App\Models\Suggestion;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,13 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Dzakwan Irfan Ramdhani',
             'email' => 'dzakone07@gmail.com',
+            'role' => 'owner',
+            'password'=> bcrypt('12345'),
+        ]);
+
+        User::create([
+            'name' => 'Connected Admin',
+            'email' => 'admin@gmail.com',
             'role' => 'owner',
             'password'=> bcrypt('12345'),
         ]);
@@ -36,6 +44,12 @@ class DatabaseSeeder extends Seeder
             'deskripsi_project' => 'Membuat senjata nuklir untuk pemusnah alien',
             'mulai' => '2023-10-31',
             'selesai' => '2023-11-03'
+        ]);
+
+        Suggestion::create([
+            'project_id' => '1',
+            'user_id' => '1',
+            'suggestion' => 'Contoh suggestion'
         ]);
 
         Task::create([
