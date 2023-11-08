@@ -1,11 +1,19 @@
-@extends('workbench.layouts.main')
+@extends('suggestions.layouts.main')
 
 @section('container')
-    <form action="/suggestions" method="post">
-        @csrf
-        <input type="text" name="user_id" value="{{ auth()->user()->id }}">
-        <input type="text" name="project_id" value="{{ $project }}">
-        Suggestions: <textarea name="suggestion" cols="30" rows="10" class="textarea"></textarea>
-        <button type="submit">Kirim</button>
-    </form>
+<div class="container">
+    <div class="suggest">
+        <form action="/suggestions" method="post">
+            @csrf
+            <label for="saran"><h1>Suggestion</h1></label>
+            <hr>
+            <p>Evaluating Today, Improving Tomorrow</p>
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+            <input type="hidden" name="project_id" value="{{ $project }}">
+            <textarea name="suggestion" id="saran" cols="30" rows="10" placeholder="Enter a message..." required></textarea>
+            <button type="submit">Send</button>
+            <a href="/projects/{{ $project }}/tasks"><p style="text-align: right;">Back</p></a>
+        </form>
+    </div>
+</div>
 @endsection
