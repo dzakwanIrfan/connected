@@ -77,9 +77,12 @@
     </table>
   </div>
     @can('staff')
-      <a href="/suggestions/create?id_project={{ $task->id_project }}">Add suggestion</a>
+      @if (isset($tasks) && $tasks->isNotEmpty() && $tasks->first()->id_project)
+        <a href="/suggestions/create?id_project={{ $tasks->first()->id_project }}">Add suggestion</a>
+      @endif
+
     @endcan
-    
+
     @can('owner')
       <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}">Suggestions</a>
     @endcan
