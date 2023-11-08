@@ -1,8 +1,42 @@
 @extends('layouts.main')
 
 @section('container')
- 
-<div class="row justify-content-center">
+
+@if (session()->has('success'))
+    <script>
+      alert("{{ session('success') }}");
+    </script>
+@endif
+
+@if (session()->has('loginError'))
+    <script>
+      alert("{{ session('loginError') }}");
+    </script>
+@endif
+
+<div class="container">
+  <div class="login">
+      <form action="/login" method="POST">
+          <h1>Login</h1>
+          <hr>
+          <p>Successful projects begin with good planning</p>
+          @csrf
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
+          <label for="password">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <button type="submit">Login</button>
+          <p>
+              <a href="#">Forgot Password</a>    
+          </p>
+      </form>
+  </div>
+  <div class="right">
+      <img src="/img/connected.png" alt="logo">
+  </div>
+</div>
+
+{{-- <div class="row justify-content-center">
     <div class="col-lg-4">
         @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -39,7 +73,6 @@
             </form>
         </main>
     </div>
-</div>
-
+</div> --}}
 
 @endsection
