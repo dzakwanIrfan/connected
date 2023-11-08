@@ -77,12 +77,9 @@
     </table>
   </div>
 
-      <a href="/suggestions/create?id_project={{ $tasks->id_project }}">Add suggestion</a>
-
-  @if (Route::has('suggestions.show') && $task->id_project)
+    {{-- <a href="/suggestions/create?id_project={{ $tasks->id_project }}">Add suggestion</a> --}}
     @can('owner')
       <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}">Suggestions</a>
     @endcan
-  @endif
 
 @endsection
