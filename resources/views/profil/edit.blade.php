@@ -8,7 +8,7 @@
             <a href="/users/{{ $user->id }}" class="button-back">Kembali</a>
         @endcan
         @can('owner')
-            <a href="{{ url()->previous() }}" class="button-back">Kembali</a>
+            <a href="/users" class="button-back">Kembali</a>
         @endcan
         <div class="sub-container">
             <div class="container-foto">
