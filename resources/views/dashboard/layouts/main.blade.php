@@ -10,6 +10,7 @@
 
     <link href="/css/workspace.css" rel="stylesheet">
     <link href="/css/dashboard.rtl.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
 
     {{-- Trix Editor --}}
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">

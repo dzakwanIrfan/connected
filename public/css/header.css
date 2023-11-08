@@ -1,0 +1,15 @@
+/* 
+!COLOR PALLETE!
+back: #B0DAFF
+minor: #FEFF86
+soft: #19A7CE
+thicc: #146C94
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
