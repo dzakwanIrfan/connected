@@ -36,13 +36,14 @@ class UserTaskController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+{
         $task = Task::find($request->task_id);
 
-        $user = $request->user_id;
+        // Get an array of selected user IDs
+        $selectedUsers = $request->input('user_id', []);
 
-        // $task->users()->attach($user);
-        $task->users()->syncWithoutDetaching([$user]);
+        // Attach selected users to the task
+        $task->users()->syncWithoutDetaching($selectedUsers);
 
         $id = $request->input('id_project');
 
