@@ -57,18 +57,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if(auth()->user()->role === 'owner')
-        {
-            return view('user.edit', [
-                'projects' => Project::all(),
-                'user' => $user
-            ]);
-        }else
-        {
-            return view('profil.edit', [
+        return view('profil.edit', [
             'user' => $user
         ]);
-        }
     }
 
     /**
