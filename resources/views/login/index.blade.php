@@ -27,7 +27,7 @@
           <input type="password" name="password" id="password" placeholder="Password" required>
           <button type="submit">Login</button>
           <p>
-              <a href="https://api.whatsapp.com/send/?phone=087787204325&text&type=phone_number&app_absent=0">Forgot Password</a>    
+              <a href="https://api.whatsapp.com/send/?phone=%2B6287787204325&text&type=phone_number&app_absent=0">Forgot Password</a>    
           </p>
       </form>
   </div>
