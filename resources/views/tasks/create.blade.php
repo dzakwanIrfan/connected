@@ -30,15 +30,6 @@
               @enderror
             </div>
             <div class="mb-3">
-              <label for="status" class="form-label">Status</label>
-              <select class="form-select" name="status">
-                  <option value="Belum dikerjakan">Belum dikerjakan</option>
-                  <option value="Sedang dikerjakan">Sedang dikerjakan</option>
-                  <option value="Selesai">Selesai</option>
-                  <option value="Gagal">Gagal</option>
-              </select>
-          </div>
-            <div class="mb-3">
               <label for="file" class="form-label">File</label>
               <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" value="{{ old('file') }}">
               @error('file')
@@ -51,19 +42,28 @@
               <label for="mulai" class="form-label">Mulai</label>
               <input type="date" class="form-control @error('mulai') is-invalid @enderror" id="mulai" name="mulai" value="{{ old('mulai') }}">
               @error('mulai')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
               @enderror
             </div>
             <div class="mb-3">
               <label for="selesai" class="form-label">Selesai</label>
               <input type="date" class="form-control @error('selesai') is-invalid @enderror" id="selesai" name="selesai" value="{{ old('selesai') }}">
               @error('selesai')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
               @enderror
+            </div>
+            <div class="mb-3">
+              <label for="status" class="form-label">Status</label>
+              <select class="form-select" name="status">
+                  <option value="Belum dikerjakan">Belum dikerjakan</option>
+                  <option value="Sedang dikerjakan">Sedang dikerjakan</option>
+                  <option value="Selesai">Selesai</option>
+                  <option value="Gagal">Gagal</option>
+              </select>
             </div>
             {{-- <div class="mb-3">
               <label for="category" class="form-label">Category</label>

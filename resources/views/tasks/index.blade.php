@@ -40,7 +40,7 @@
           <td>
             @if (isset($taskUsers[$task->id]) && $taskUsers[$task->id]->isNotEmpty())
                 @foreach ($userTasks as $user)
-                    <a href="/users/{{ $user->users }}" class="text-black text-decoration-none">{{ $user->users->name }}</a>
+                    <a href="/users/{{ $user->users->id }}" class="text-black text-decoration-none">{{ $user->users->name }}</a>
                     @can('owner')
                       <form action="/user-task/{{ $user->id }}" method="post" class="d-inline">
                       @method('delete')

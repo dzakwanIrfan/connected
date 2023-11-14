@@ -112,11 +112,11 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $rules = [
-            'nama_task' => 'required|max:255',
-            'deskripsi_task' => 'required|max:255',
-            'status' => 'required|max:255',
-            'mulai' => 'required',
-            'selesai' => 'required'
+            'nama_task' => '|max:255',
+            'deskripsi_task' => '|max:255',
+            'status' => '|max:255',
+            'mulai' => '',
+            'selesai' => ''
         ];
         
         $validatedData = $request->validate($rules);
