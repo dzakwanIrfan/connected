@@ -79,6 +79,9 @@ class UserTaskController extends Controller
      */
     public function destroy(UserTask $userTask)
     {
-        //
+        $task = $userTask->tasks;
+        $idProject = $task->id_project;
+        $userTask->delete();
+        return redirect("/projects/$idProject/tasks");
     }
 }
