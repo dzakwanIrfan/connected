@@ -95,6 +95,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        Suggestion::destroy($project->id);
         Project::destroy($project->id);
         return redirect('/dashboard');
     }
