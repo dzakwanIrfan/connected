@@ -16,7 +16,7 @@
                 <textarea name="deskripsi_project" id="deskripsi_projek" class="form-control">{{ old('deskripsi_project', $project->deskripsi_project) }}</textarea>
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Post Image</label>
+                <label for="image" class="form-label">Project Image</label>
                 <input type="hidden" name="oldImage" value="{{ $project->image }}">
                 @if ($project->image)
                     <img src="{{ asset('storage/' . $project->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
