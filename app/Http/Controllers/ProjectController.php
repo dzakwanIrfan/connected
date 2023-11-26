@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Suggestion;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -33,9 +34,14 @@ class ProjectController extends Controller
         $validatedData = $request->validate([
             'nama_project' => 'required|max:255',
             'deskripsi_project' => 'required|max:255',
+            'image' => 'image|file|max:1024',
             'mulai' => 'required',
             'selesai' => 'required'
         ]);
+
+        if ($request->file('image')) {
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
 
         $project = Project::create($validatedData);
 
@@ -85,7 +91,24 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $project->update($request->all());
+        $rules = [
+            'nama_project' => 'required|max:255',
+            'deskripsi_project' => 'required|max:255',
+            'image' => 'image|file|max:1024',
+            'mulai' => 'required',
+            'selesai' => 'required'
+        ];
+
+        $validatedData = $request->validate($rules);
+        
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['image'] = $request->file('image')->store('post-images');
+        }
+
+        $project->update($validatedData);
 
         return redirect("/dashboard");
     }
@@ -95,6 +118,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        if ($project->image) {
+            Storage::delete($project->image);
+        }
         Project::destroy($project->id);
         return redirect('/dashboard');
     }
