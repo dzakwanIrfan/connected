@@ -121,6 +121,7 @@ class ProjectController extends Controller
         if ($project->image) {
             Storage::delete($project->image);
         }
+        Suggestion::destroy($project->id);
         Project::destroy($project->id);
         return redirect('/dashboard');
     }
