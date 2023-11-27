@@ -32,6 +32,14 @@ class UserTaskController extends Controller
         ]);
     }
 
+    public function file(Request $request)
+    {
+        return view('userTasks.createFile',[
+            'task' => Task::where('id', $request->task)->first(),
+            'projects' => Project::all()
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      */

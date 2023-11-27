@@ -20,9 +20,9 @@
           <th scope="col">Nama</th>
           <th scope="col">Deskripsi</th>
           <th scope="col">Status</th>
-          <th scope="col">File</th>
           <th scope="col">Mulai</th>
           <th scope="col">Selesai</th>
+          <th scope="col">File</th>
           <th scope="col">Pekerja</th>
           <th scope="col">Aksi</th>
         </tr>
@@ -41,9 +41,14 @@
           <td>{{ $task->mulai }}</td>
           <td>{{ $task->selesai }}</td>
           <td>
+            @can('staff')
+              <a href="/user-task/file/{{ $task->id }}">add file</a>
+            @endcan
+          </td>
+          <td>
             @if (isset($taskUsers[$task->id]) && $taskUsers[$task->id]->isNotEmpty())
-                @foreach ($userTasks as $user)
-                    <a href="/users/{{ $user->users->id }}" class="text-black text-decoration-none">{{ $user->users->name }}</a>
+                @foreach ($taskUsers[$task->id] as $user)
+                    <a href="/users/{{ $user->id }}" class="text-black text-decoration-none">{{ $user->name }}</a>
                     @can('owner')
                       <form action="/user-task/{{ $user->id }}" method="post" class="d-inline">
                       @method('delete')
@@ -100,7 +105,9 @@
     @endcan
 
     @can('owner')
-      <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}">Suggestions</a>
+      @foreach ($tasks as $task)
+        <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}">Suggestions</a>
+      @endforeach
     @endcan
 
     <script>
