@@ -1,15 +1,14 @@
-/* 
-!COLOR PALLETE!
-back: #B0DAFF
-minor: #FEFF86
-soft: #19A7CE
-thicc: #146C94
-*/
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
         sans-serif;
+}
+
+:root {
+    --biru: #19a7ce;
+    --birutua: #146c94;
+    --kuning: #feff86;
+    --bg: #b0daff;
 }

@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+:root {
+    --biru: #19a7ce;
+    --birutua: #146c94;
+    --kuning: #feff86;
+    --bg: #b0daff;
+}
+
+.kotak-right {
+    margin: 1rem 1rem;
+}
+
+.card {
+    box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
+    width: 400px;
+    height: 500px;
+}

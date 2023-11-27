@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+:root {
+    --biru: #19a7ce;
+    --birutua: #146c94;
+    --kuning: #feff86;
+    --bg: #b0daff;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    height: 100vh;
+    width: 80px;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .kotak-right {
+    left: 250px;
+    width: calc(100% - 250px);
+}
+
+.sidebar.active {
+    width: 250px;
+}
+
+.sidebar #btn {
+    position: absolute;
+    color: #ffff;
+    top: 0.6rem;
+    left: 50%;
+    font-size: 1.2rem;
+    line-height: 50px;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.sidebar.active #btn {
+    left: 90%;
+}
+
+.sidebar .top .logo a {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    text-decoration: none;
+    color: #ffff;
+}
+
+.sidebar.active .top .logo a {
+    opacity: 1;
+}
+
+.user a {
+    display: flex;
+    align-items: center;
+    margin: 0.6rem 0;
+    text-decoration: none;
+}
+
+.user p {
+    color: #ffff;
+    opacity: 1;
+    margin-left: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.sidebar p {
+    opacity: 0;
+}
+
+.sidebar.active p {
+    opacity: 1;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style: none;
+    height: 50px;
+    width: 90%;
+    margin: 0.8rem auto;
+    line-height: 50px;
+}
+
+.sidebar ul li a {
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sidebar ul li a:hover {
+    background-color: #ffff;
+    color: #000;
+}
+
+.sidebar ul li a .icon {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 16px;
+    line-height: 50px;
+}
+
+.sidebar ul li a .text {
+    opacity: 0;
+}
+
+.sidebar.active ul li a .text {
+    opacity: 1;
+}
+
+.sidebar ul li .tooltip {
+    position: absolute;
+    left: 125px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0.5rem 0.8 rem rgba(0, 0, 0, 0.2);
+    border-radius: 0.6rem;
+    background-color: #ffff;
+    padding: 0.4rem 1.2rem;
+    line-height: 1.8rem;
+    z-index: 20;
+    opacity: 0;
+}
+
+.sidebar ul li a:hover ~ .tooltip {
+    opacity: 1;
+}
+
+.sidebar.active ul li .tooltip {
+    display: none;
+}
+
+.sidebar ul li form {
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+}
+
+.sidebar ul li form:hover button {
+    background-color: #ffff;
+    color: #000;
+}
+
+.sidebar ul li form button {
+    min-width: 50px;
+    text-align: center;
+    height: 50px;
+    border-radius: 0.8rem;
+    line-height: 50px;
+    border: none;
+    border-color: transparent;
+    background-color: #000;
+    color: #ffff;
+}
+
+.icon {
+    height: 50px;
+}
+
+.sidebar ul li form .text {
+    opacity: 0;
+}
+
+.sidebar.active ul li form .text {
+    opacity: 1;
+}
+
+.projectlist p {
+    color: #ffff;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.projectlist ul li {
+    opacity: 0;
+}
+
+.sidebar.active .projectlist ul li {
+    opacity: 1;
+}
+
+.kotak-right {
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    left: 80px;
+    transition: all 0.5s ease;
+}
+
+.kotak {
+    display: flex;
+}
+
+.user-img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+}
+
+.side-img {
+    width: 2rem;
+    height: 2rem;
+}
