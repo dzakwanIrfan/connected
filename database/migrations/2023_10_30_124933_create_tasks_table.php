@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('nama_task');
             $table->string('deskripsi_task');
             $table->string('status')->default('Belum Mulai Dikerjakan');
-            $table->string('file')->nullable();
             $table->date('mulai');
             $table->date('selesai');
             $table->timestamps();
