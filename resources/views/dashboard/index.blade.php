@@ -8,12 +8,12 @@
                 <form action="/projects/{{ $project->id }}" method="post" class="d-inline" enctype="multipart/form-data">
                   @method('delete')
                   @csrf
-                  <button class="hapus position-absolute bg-danger px-2 py-1 text-white" onclick="return confirm('Are you sure?');"><i class="bi bi-x-circle"></i></button>
+                  <button class="hapus position-absolute bg-danger px-2 py-1 text-white" onclick="return confirm('Are you sure?');">hapus</button>
                 </form>
               </div>
               <div class="position-relative">
                 <a href="/projects/{{ $project->id }}/edit" class="edit position-absolute bg-warning px-2 py-1 text-decoration-none text-white" style="left: 40px">
-                  <i class="bi bi-pencil"></i>
+                  edit
                 </a>
               </div>
               @if ($project->image)

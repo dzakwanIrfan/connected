@@ -12,6 +12,12 @@ class FileController extends Controller
         $task = $request->task_id;
         $user = auth()->user()->id;
         $file = $request->file('file'); // get the file from the request
+        $project = $request->input('id_project');
+        
+        if(is_null($file)){
+            session()->flash('alert', 'No file uploaded!');
+            return redirect("/user-task/file/$task");
+        }
 
         // validate and store the file
         $fileName = auth()->user()->name . '.' . $file->getClientOriginalExtension();
@@ -23,9 +29,6 @@ class FileController extends Controller
             $userTask->file = $path;
             $userTask->save();
         }
-
-        $project = $request->input('id_project');
-
         return redirect("/projects/$project/tasks");
     }
 }
