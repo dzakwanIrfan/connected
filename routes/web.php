@@ -60,4 +60,4 @@ Route::get('/user-task/create/{task}', [UserTaskController::class,'create'])->mi
 
 Route::resource('/suggestions', SuggestionController::class)->middleware('auth');
 
-
+Route::put('/tasks/{task}', [TaskController::class, 'update']);

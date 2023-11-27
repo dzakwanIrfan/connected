@@ -33,7 +33,10 @@
           <td>{{ $loop->iteration }}</td>
           <td>{{ $task->nama_task }}</td>
           <td>{{ $task->deskripsi_task }}</td>
-          <td>{{ $task->status }}</td>
+          <td>
+            <input type="range" min="0" max="100" value="{{ $task->status }}" class="slider" id="status{{ $task->id }}" disabled>
+            <span id="percentage{{ $task->id }}">{{ $task->status }}%</span>
+          </td>
           <td>{{ $task->file }}</td>
           <td>{{ $task->mulai }}</td>
           <td>{{ $task->selesai }}</td>
@@ -100,4 +103,17 @@
       <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}">Suggestions</a>
     @endcan
 
+    <script>
+      @foreach ($tasks as $task)
+        var slider = document.getElementById("status{{ $task->id }}");
+        var value = slider.value;
+        if (value < 25) {
+          slider.style.background = 'red';
+        } else if (value < 75) {
+          slider.style.background = 'yellow';
+        } else {
+          slider.style.background = 'green';
+        }
+      @endforeach
+    </script>
 @endsection

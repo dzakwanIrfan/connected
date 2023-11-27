@@ -15,7 +15,11 @@
   @foreach ($projects as $project)
   <div class="col-md-4 mb-3">
       <div class="card">
-          <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="img-fluid">
+        @if ($project->image)
+        <img src="{{ asset('storage/' . $project->image) }}" alt="foto_project" class="img-fluid" style="width: 1200px; height: 150px; object-fit: cover;"> 
+        @else
+        <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="img-fluid">
+        @endif
           <div class="card-body">
             <h5 class="card-title"><a href="/projects/{{ $project->id }}/tasks" class="text-decoration-none text-dark">{{ $project->nama_project }}</a></h5> 
             <p class="card-text">{{ $project->deskripsi_project }}</p>

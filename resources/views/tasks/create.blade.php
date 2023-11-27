@@ -56,15 +56,11 @@
               </div>
               @enderror
             </div>
-            <div class="mb-3">
+            <div class="mb-3" hidden>
               <label for="status" class="form-label">Status</label>
-              <select class="form-select" name="status">
-                  <option value="Belum dikerjakan">Belum dikerjakan</option>
-                  <option value="Sedang dikerjakan">Sedang dikerjakan</option>
-                  <option value="Selesai">Selesai</option>
-                  <option value="Gagal">Gagal</option>
-              </select>
+              <input type="range" min="0" max="100" value="0" class="slider" id="status" name="status">
             </div>
+          <div id="percentage" hidden>0%</div>
             {{-- <div class="mb-3">
               <label for="category" class="form-label">Category</label>
               <select class="form-select" name="category_id">
