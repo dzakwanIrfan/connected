@@ -32,15 +32,6 @@
               @enderror
             </div>
             @endcan
-            <div class="mb-3">
-              <label for="file" class="form-label">File</label>
-              <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" value="{{ old('file', $task->file) }}">
-              @error('file')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-              @enderror
-            </div>
             @can('owner')
             <div class="mb-3">
               <label for="mulai" class="form-label">Mulai</label>

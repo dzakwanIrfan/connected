@@ -2,16 +2,17 @@
 
 use App\Models\User;
 use App\Models\Project;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\TaskController;
+// use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
-// use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\SuggestionController;
 use App\Http\Controllers\UserTaskController;
-use GuzzleHttp\Middleware;
+use App\Http\Controllers\SuggestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,4 +64,4 @@ Route::get('/user-task/file/{task}', [UserTaskController::class,'file'])->middle
 Route::resource('/suggestions', SuggestionController::class)->middleware('auth');
 
 Route::put('/tasks/{task}', [TaskController::class, 'update']);
-Route::post('/file', [File::class,'store'])->middleware('auth');
+Route::post('/file', [FileController::class,'store'])->middleware('auth');
