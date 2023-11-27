@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
             'id_project' => '1',
             'nama_task' => 'Membuat pangkalan militer',
             'deskripsi_task' => 'Mencari tempat di Los Alamos untuk dijadikan markas militer',
-            'status' => 'Sedang dikerjakan',
+            'status' => '0',
             'mulai' => '2023-10-31',
             'selesai' => '2023-11-03'
         ]);
@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
             'id_project' => '1',
             'nama_task' => 'Merekrut ilmuan atom',
             'deskripsi_task' => 'Merekrut Bohr dan Robert Oppenheimer',
-            'status' => 'Belum dikerjakan',
+            'status' => '0',
             'mulai' => '2023-11-03',
             'selesai' => '2023-11-06'
         ]);

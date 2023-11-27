@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserTask;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -57,18 +58,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if(auth()->user()->role === 'owner')
-        {
-            return view('user.edit', [
-                'projects' => Project::all(),
-                'user' => $user
-            ]);
-        }else
-        {
-            return view('profil.edit', [
+        return view('profil.edit', [
             'user' => $user
         ]);
-        }
     }
 
     /**
@@ -98,6 +90,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        UserTask::destroy($user->id);
         User::destroy($user->id);
         return redirect('/users');
     }

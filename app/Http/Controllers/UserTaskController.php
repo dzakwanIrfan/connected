@@ -32,17 +32,26 @@ class UserTaskController extends Controller
         ]);
     }
 
+    public function file(Request $request)
+    {
+        return view('userTasks.createFile',[
+            'task' => Task::where('id', $request->task)->first(),
+            'projects' => Project::all()
+        ]);
+    }
+
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+{
         $task = Task::find($request->task_id);
 
-        $user = $request->user_id;
+        // Get an array of selected user IDs
+        $selectedUsers = $request->input('user_id', []);
 
-        // $task->users()->attach($user);
-        $task->users()->syncWithoutDetaching([$user]);
+        // Attach selected users to the task
+        $task->users()->syncWithoutDetaching($selectedUsers);
 
         $id = $request->input('id_project');
 
@@ -78,6 +87,9 @@ class UserTaskController extends Controller
      */
     public function destroy(UserTask $userTask)
     {
-        //
+        $task = $userTask->tasks;
+        $idProject = $task->id_project;
+        $userTask->delete();
+        return redirect("/projects/$idProject/tasks");
     }
 }

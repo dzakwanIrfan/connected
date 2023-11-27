@@ -63,6 +63,9 @@ textarea {
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #19A7CE;
+    resize: none;
+    width: 750px;
+    height: 200px;
 }
 
 button {
@@ -106,5 +109,18 @@ button:hover {
 
     button {
         width: 50%;
+    }
+
+    textarea {
+        width: 100%;
+        margin: 2px;
+        border: none;
+        outline: none;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #19A7CE;
+        resize: none;
+        width: 350px;
+        height: 200px;
     }
 }

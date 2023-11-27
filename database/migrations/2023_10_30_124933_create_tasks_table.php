@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('id_project');
             $table->string('nama_task');
             $table->string('deskripsi_task');
-            $table->string('status')->default('Belum Mulai Dikerjakan');
+            $table->integer('status');
             $table->string('file')->nullable();
             $table->date('mulai');
             $table->date('selesai');

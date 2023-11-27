@@ -14,6 +14,7 @@ class TaskController extends Controller
 {
     public function projectTasks(Project $project)
     {
+        $userTasks = [];
         if(auth()->user()->role === 'owner'){
             $tasks = Task::with('project')->where('id_project', $project->id)->get();
         }else{
@@ -21,6 +22,7 @@ class TaskController extends Controller
             $taskIds = $userTask->pluck('task_id');
             $tasks = Task::with('Project')->where('id_project', $project->id)->whereIn('id', $taskIds)->get();
         }
+        
         $taskUsers = [];
         // Ambil tugas-tugas yang terkait dengan proyek ini
         if(auth()->user()->role === 'owner'){
@@ -42,7 +44,8 @@ class TaskController extends Controller
         return view('tasks.index', [
             'tasks' => $tasks,
             'project' => $project,
-            'taskUsers' => $taskUsers
+            'taskUsers' => $taskUsers,
+            'userTasks' => $userTasks
         ]);
     }
 
@@ -81,6 +84,7 @@ class TaskController extends Controller
 
         $id = $request->id_project;
         $validatedData['id_project'] = $id;
+        $validatedData['status'] = (int) $request->status;
 
         Task::create($validatedData);
 
@@ -111,11 +115,11 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $rules = [
-            'nama_task' => 'required|max:255',
-            'deskripsi_task' => 'required|max:255',
-            'status' => 'required|max:255',
-            'mulai' => 'required',
-            'selesai' => 'required'
+            'nama_task' => '|max:255',
+            'deskripsi_task' => '|max:255',
+            'status' => '|max:255',
+            'mulai' => '',
+            'selesai' => ''
         ];
         
         $validatedData = $request->validate($rules);
@@ -131,6 +135,9 @@ class TaskController extends Controller
         $validatedData['id_project'] = $id;
 
         Task::where('id', $task->id)->update($validatedData);
+        
+        $task->status = $request->input('status');
+        $task->save();
 
         return redirect("/projects/$id/tasks");
     }
@@ -140,7 +147,13 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        Task::destroy($task->id);
+        if($task->userTasks()){
+            $task->userTasks()->delete();
+        }
+
+        // Then delete the task
+        $task->delete();
+
         return redirect("/projects/$task->id_project/tasks");
     }
 }

@@ -2,22 +2,23 @@
 
 @section('container')
     <div class="container">
-        <div class="sub-title"><h1>{{ $user->name }} Profile</h1></div><hr>
-            @can('staff')    
-                <a href="/workbench" class="button-back">Kembali</a>
-            @endcan
-            @can('owner')
-                <a href="{{ url()->previous() }}" class="button-back">Kembali</a>
-            @endcan
+        <h1 class="page-title">{{ $user->name }} Profile</h1>
+        <hr>
+        @can('staff')    
+            <a href="/workbench" class="button-back">Kembali</a>
+        @endcan
+        @can('owner')
+            <a href="/users" class="button-back">Kembali</a>
+        @endcan
         <div class="sub-container">
             <div class="container-foto">
-                <img src="https://source.unsplash.com/500x500?profile" class="img-fluid img-thumbnail">
+                <img src="https://source.unsplash.com/500x500?profile" class="profile-image">
                 @can('edit-profile', $user->id)
-                    <a href="/users/{{ $user->id }}/edit" style="display: block">edit</a>
+                    <a href="/users/{{ $user->id }}/edit" class="edit-link">Edit</a>
                 @endcan
             </div>
             <div class="container-profil">
-                <table class="table table-sm">
+                <table class="profile-table">
                     <tr>
                         <td>Nama</td>
                         <td>:</td>

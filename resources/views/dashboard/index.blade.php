@@ -4,22 +4,27 @@
       @foreach ($projects as $project)
           <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
           <div class="card">
-            <div class="card-konten">
-              <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="">
-            <div class="">
-              <h5 class=""><a href="/projects/{{ $project->id }}/tasks" class="">{{ $project->nama_project }}</a></h5> 
-              <p class="">{{ $project->deskripsi_project }}</p>
-            </div>
-            <div class="">
-              <a href="/projects/{{ $project->id }}/edit" class="" style="">
-                <i class="bi bi-pencil"></i>
-              </a>
-            </div>
-              <form action="/projects/{{ $project->id }}" method="post" class="">
-                @method('delete')
-                @csrf
-                <button class="" onclick="return confirm('Are you sure?');"><ion-icon name="trash-outline"></ion-icon></button>
-              </form>
+              <div class="position-relative">
+                <form action="/projects/{{ $project->id }}" method="post" class="d-inline" enctype="multipart/form-data">
+                  @method('delete')
+                  @csrf
+                  <button class="hapus position-absolute bg-danger px-2 py-1 text-white" onclick="return confirm('Are you sure?');"><i class="bi bi-x-circle"></i></button>
+                </form>
+              </div>
+              <div class="position-relative">
+                <a href="/projects/{{ $project->id }}/edit" class="edit position-absolute bg-warning px-2 py-1 text-decoration-none text-white" style="left: 40px">
+                  <i class="bi bi-pencil"></i>
+                </a>
+              </div>
+              @if ($project->image)
+              <img src="{{ asset('storage/' . $project->image) }}" alt="foto_project" class="img-fluid"> 
+              @else
+              <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="img-fluid">
+              @endif
+              <div class="card-body">
+                <h5 class="card-title"><a href="/projects/{{ $project->id }}/tasks" class="text-decoration-none text-dark">{{ $project->nama_project }}</a></h5> 
+                <p class="card-text">{{ $project->deskripsi_project }}</p>
+              </div>
             </div>
           </div>
               

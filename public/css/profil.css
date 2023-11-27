@@ -1,4 +1,4 @@
-:root{
+:root {
     --back: #B0DAFF;
     --minor: #FEFF86;
     --soft: #19A7CE;
@@ -12,33 +12,23 @@
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-body{
-    background-color: var(--soft);
-}
-
-.container{
+.container {
     background-color: white;
     border-radius: 1rem;
     padding: 1.5rem;
     width: 70%;
     margin: 3rem auto;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+    text-align: center; /* Pusatkan konten dalam container */
 }
 
-.container > .sub-title{
-    text-align: center;
+hr {
+    border: none;
+    border-top: 2px solid var(--minor);
+    margin: 1rem 0;
 }
 
-.sub-container{
-    display: flex;
-}
-
-hr{
-    border-top: 3px solid var(--minor);
-    margin: 1rem 0.5rem 1rem 0.5rem
-}
-
-.container-foto > img{
+.container-foto > img {
     width: 200px;
     height: 200px;
     border-radius: 50%;
@@ -46,3 +36,97 @@ hr{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
+.container-profil {
+    text-align: left; /* Aligment teks kiri */
+    margin-left: 20px; /* Berikan margin kiri pada kontainer profil */
+}
+
+/* Tambahkan gaya untuk tautan edit */
+.container-foto > a {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--thicc);
+}
+
+/* Tambahkan kode CSS berikut di dalam file Anda */
+
+body {
+    background-color: var(--back);
+    color: var(--thicc);
+}
+
+.page-title {
+    text-align: center;
+}
+
+.button-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px 0;
+    background-color: var(--soft);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button-back:hover {
+    background-color: var(--thicc);
+}
+
+.edit-link {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: var(--thicc);
+    font-weight: bold;
+}
+
+.profile-table {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.profile-table td {
+    padding: 5px 0;
+}
+
+.input {
+    border: none;
+    border-bottom: 1px solid var(--soft);
+    background-color: transparent;
+    outline: none;
+    /* Gaya saat input mendapatkan fokus */
+  }
+  
+  .input:focus {
+    border: transparent;
+    border-bottom: 2px solid var(--thicc);
+  }
+
+  .input:focus::placeholder{
+    color: transparent;
+  }
+
+  .edit {
+    display: inline-block;
+    padding: 5px 15px;
+    margin: 20px 0;
+    background-color: transparent;
+    border: 1px solid var(--thicc);
+    color: var(--thicc);
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.edit:hover {
+    color: white;
+    background-color: var(--thicc);
+}
+  

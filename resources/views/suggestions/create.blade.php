@@ -10,7 +10,7 @@
             <p>Evaluating Today, Improving Tomorrow</p>
             <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
             <input type="hidden" name="project_id" value="{{ $project }}">
-            <textarea name="suggestion" id="saran" cols="30" rows="10" placeholder="Enter a message..." required></textarea>
+            <textarea name="suggestion" id="saran" placeholder="Enter a message..." required maxlength="300"></textarea>
             <button type="submit">Send</button>
             <a href="/projects/{{ $project }}/tasks"><p style="text-align: right;">Back</p></a>
         </form>

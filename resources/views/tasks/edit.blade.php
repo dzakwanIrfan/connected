@@ -10,6 +10,10 @@
             @method('put')
             @csrf
             <div class="mb-3">
+              <input type="hidden" class="form-control @error('id_project') is-invalid @enderror" id="id_project" name="id_project" required autofocus value="{{ old('id_project', $task->id_project) }}">
+            </div>
+            @can('owner')
+            <div class="mb-3">
               <label for="nama_task" class="form-label">Nama Task</label>
               <input type="text" class="form-control @error('nama_task') is-invalid @enderror" id="nama_task" name="nama_task" required autofocus value="{{ old('nama_task', $task->nama_task) }}">
               @error('nama_task')
@@ -17,9 +21,6 @@
                   {{ $message }}
                 </div>
               @enderror
-            </div>
-            <div class="mb-3">
-              <input type="hidden" class="form-control @error('id_project') is-invalid @enderror" id="id_project" name="id_project" required autofocus value="{{ old('id_project', $task->id_project) }}">
             </div>
             <div class="mb-3">
               <label for="deskripsi_task" class="form-label">Deskripsi Task</label>
@@ -30,24 +31,8 @@
                 </div>
               @enderror
             </div>
-            <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-select" name="status">
-                    <option value="Belum dikerjakan" {{ $task->status === 'Belum dikerjakan' ? 'selected' : '' }}>Belum dikerjakan</option>
-                    <option value="Sedang dikerjakan" {{ $task->status === 'Sedang dikerjakan' ? 'selected' : '' }}>Sedang dikerjakan</option>
-                    <option value="Selesai" {{ $task->status === 'Selesai' ? 'selected' : '' }}>Selesai</option>
-                    <option value="Gagal" {{ $task->status === 'Gagal' ? 'selected' : '' }}>Gagal</option>
-                </select>
-            </div>
-            <div class="mb-3">
-              <label for="file" class="form-label">File</label>
-              <input type="file" class="form-control @error('file') is-invalid @enderror" id="file" name="file" value="{{ old('file', $task->file) }}">
-              @error('file')
-                <div class="invalid-feedback">
-                  {{ $message }}
-                </div>
-              @enderror
-            </div>
+            @endcan
+            @can('owner')
             <div class="mb-3">
               <label for="mulai" class="form-label">Mulai</label>
               <input type="date" class="form-control @error('mulai') is-invalid @enderror" id="mulai" name="mulai" value="{{ old('mulai', $task->mulai) }}">
@@ -66,6 +51,14 @@
                 </div>
               @enderror
             </div>
+            @endcan
+            @can('staff')
+            <div class="mb-3">
+              <label for="status" class="form-label">Status</label>
+              <input type="range" min="0" max="100" value="{{ $task->status }}" class="slider" id="status" name="status">
+          </div>
+          <div id="percentage">{{ $task->status }}%</div>
+            @endcan
             {{-- <div class="mb-3">
               <label for="category" class="form-label">Category</label>
               <select class="form-select" name="category_id">
@@ -127,4 +120,15 @@
       }
       }
     </script> --}}
+    <script>
+      var slider = document.getElementById("status");
+      var value = slider.value;
+      if (value < 25) {
+        slider.style.background = 'red';
+      } else if (value < 75) {
+        slider.style.background = 'yellow';
+      } else {
+        slider.style.background = 'green';
+      }
+    </script>
 @endsection
