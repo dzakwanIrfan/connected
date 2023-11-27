@@ -14,6 +14,7 @@ class TaskController extends Controller
 {
     public function projectTasks(Project $project)
     {
+        $userTasks = [];
         if(auth()->user()->role === 'owner'){
             $tasks = Task::with('project')->where('id_project', $project->id)->get();
         }else{
@@ -21,6 +22,7 @@ class TaskController extends Controller
             $taskIds = $userTask->pluck('task_id');
             $tasks = Task::with('Project')->where('id_project', $project->id)->whereIn('id', $taskIds)->get();
         }
+        
         $taskUsers = [];
         // Ambil tugas-tugas yang terkait dengan proyek ini
         if(auth()->user()->role === 'owner'){
@@ -141,7 +143,9 @@ class TaskController extends Controller
      */
     public function destroy(Task $task)
     {
-        $task->userTasks()->delete();
+        if($task->userTasks()){
+            $task->userTasks()->delete();
+        }
 
         // Then delete the task
         $task->delete();

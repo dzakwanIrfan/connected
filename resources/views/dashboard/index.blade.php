@@ -9,7 +9,7 @@
       <div class="col-md-4 mb-3">
           <div class="card">
               <div class="position-relative">
-                <form action="/projects/{{ $project->id }}" method="post" class="d-inline">
+                <form action="/projects/{{ $project->id }}" method="post" class="d-inline" enctype="multipart/form-data">
                   @method('delete')
                   @csrf
                   <button class="hapus position-absolute bg-danger px-2 py-1 text-white" onclick="return confirm('Are you sure?');"><i class="bi bi-x-circle"></i></button>
