@@ -50,7 +50,7 @@ class ProjectController extends Controller
             'id_project' => $project->id,
             'nama_task' => 'Nama Tugas Default',
             'deskripsi_task' => 'Deskripsi Tugas Default',
-            'status' => 'Belum Mulai Dikerjakan',
+            'status' => '0',
             'file' => 'Nama File Default',
             'mulai' => $project->mulai,
             'selesai' => $project->selesai,

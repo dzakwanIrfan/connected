@@ -84,6 +84,7 @@ class TaskController extends Controller
 
         $id = $request->id_project;
         $validatedData['id_project'] = $id;
+        $validatedData['status'] = (int) $request->status;
 
         Task::create($validatedData);
 
@@ -134,6 +135,9 @@ class TaskController extends Controller
         $validatedData['id_project'] = $id;
 
         Task::where('id', $task->id)->update($validatedData);
+        
+        $task->status = $request->input('status');
+        $task->save();
 
         return redirect("/projects/$id/tasks");
     }

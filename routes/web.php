@@ -62,6 +62,5 @@ Route::get('/user-task/file/{task}', [UserTaskController::class,'file'])->middle
 
 Route::resource('/suggestions', SuggestionController::class)->middleware('auth');
 
+Route::put('/tasks/{task}', [TaskController::class, 'update']);
 Route::post('/file', [File::class,'store'])->middleware('auth');
-
-

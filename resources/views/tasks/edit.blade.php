@@ -61,15 +61,13 @@
               @enderror
             </div>
             @endcan
+            @can('staff')
             <div class="mb-3">
-                <label for="status" class="form-label">Status</label>
-                <select class="form-select" name="status">
-                    <option value="Belum dikerjakan" {{ $task->status === 'Belum dikerjakan' ? 'selected' : '' }}>Belum dikerjakan</option>
-                    <option value="Sedang dikerjakan" {{ $task->status === 'Sedang dikerjakan' ? 'selected' : '' }}>Sedang dikerjakan</option>
-                    <option value="Selesai" {{ $task->status === 'Selesai' ? 'selected' : '' }}>Selesai</option>
-                    <option value="Gagal" {{ $task->status === 'Gagal' ? 'selected' : '' }}>Gagal</option>
-                </select>
-            </div>
+              <label for="status" class="form-label">Status</label>
+              <input type="range" min="0" max="100" value="{{ $task->status }}" class="slider" id="status" name="status">
+          </div>
+          <div id="percentage">{{ $task->status }}%</div>
+            @endcan
             {{-- <div class="mb-3">
               <label for="category" class="form-label">Category</label>
               <select class="form-select" name="category_id">
@@ -131,4 +129,15 @@
       }
       }
     </script> --}}
+    <script>
+      var slider = document.getElementById("status");
+      var value = slider.value;
+      if (value < 25) {
+        slider.style.background = 'red';
+      } else if (value < 75) {
+        slider.style.background = 'yellow';
+      } else {
+        slider.style.background = 'green';
+      }
+    </script>
 @endsection
