@@ -33,6 +33,7 @@
     height: 400px;
     margin-left: 20px;
     margin-top: 20px;
+    overflow: hidden;
 }
 
 .card-top {
@@ -86,4 +87,16 @@
 .card-edit a {
     text-decoration: none;
     color: #000;
+}
+
+.card-text {
+    max-width: 350px;
+    max-height: 50px;
+    overflow: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.card-text::-webkit-scrollbar {
+    width: 5px;
 }

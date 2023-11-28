@@ -59,8 +59,8 @@
  <div class="projectlist">
     <p id="projectlist">Project Lists</p>
  @foreach ($projects as $project)
-        <ul class="nav flex-column">
-            <li class="nav-item">
+        <ul class="side flex-column">
+            <li class="side-item">
                 <a class="nav-link" href="/projects/{{ $project->id }}/tasks">
                     {{ $project->nama_project }}
                 </a>

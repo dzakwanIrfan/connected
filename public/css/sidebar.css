@@ -205,11 +205,20 @@
 }
 
 .projectlist ul li {
-    opacity: 0;
+    display: none;
+}
+
+.sidebar.active .projectlist {
+    overflow-y: auto;
+    max-height: 60vh;
+}
+
+.sidebar.active .projectlist::-webkit-scrollbar {
+    width: 5px;
 }
 
 .sidebar.active .projectlist ul li {
-    opacity: 1;
+    display: block;
 }
 
 .kotak-right {
