@@ -50,6 +50,7 @@
     height: 200px;
     padding: 5px 20px;
     align-items: center;
+    object-fit: cover;
 }
 
 .card-body {
