@@ -10,7 +10,11 @@
   </div>
   <div class="user">
     <a href="/users/{{ auth()->user()->id }}">
-      <img src="https://source.unsplash.com/500x500?profile" class="user-img">
+      @if (auth()->user()->image)
+        <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="foto_project" class="user-img"> 
+      @else
+        <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="user-img">
+      @endif
       <div class="role">
         <p class="text {{ Request::is('dashboard/categories*') ? '' : 'text-black' }}">{{ auth()->user()->name }}</p>
         <p class="text {{ Request::is('dashboard/categories*') ? '' : 'text-black' }}">{{ auth()->user()->role }}</p>
