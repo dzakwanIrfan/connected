@@ -34,6 +34,13 @@
       <span class="tooltip">Project</span>
     </li>
     <li>
+      <a href="/users">
+      <span class="icon"><ion-icon name="people-outline"></ion-icon></span>
+      <span class="text {{ Request::is('dashboard') ? '' : 'text-black' }}">User Management</span>
+      </a>
+      <span class="tooltip">User Management</span>
+    </li>
+    <li>
       <form action="/logout" method="post">
         @csrf
         <button type="submit" class="nav-link">

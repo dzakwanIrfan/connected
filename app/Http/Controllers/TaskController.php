@@ -45,7 +45,8 @@ class TaskController extends Controller
             'tasks' => $tasks,
             'project' => $project,
             'taskUsers' => $taskUsers,
-            'userTasks' => $userTasks
+            'userTasks' => $userTasks,
+            'projects' => Project::all()
         ]);
     }
 
