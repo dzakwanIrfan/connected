@@ -40,9 +40,9 @@
           <td>{{ $task->mulai }}</td>
           <td>{{ $task->selesai }}</td>
           <td>
-            @foreach ($userTasks as $userTask)
+            @foreach ($task->userTasks as $userTask)
                 @if ($userTask->task_id == $task->id)
-                  <a href="{{ asset('storage/' . $userTask->file) }}" download>{{ $userTask->file }}</a><br>
+                    <a href="{{ asset('storage/' . $userTask->file) }}" download>{{ $userTask->file }}</a><br>
                 @endif
             @endforeach
           </td>
