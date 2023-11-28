@@ -45,12 +45,12 @@
       <span class="tooltip">User Management</span>
     </li>
     <li>
-      <form action="/logout" method="post">
-        @csrf
-        <button type="submit" class="nav-link">
-          <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
-        </button>
+      <a href="#" onclick="logout()" class="nav-link">
+        <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
         <span class="text">Logout</span>
+      </a>
+      <form id="logout-form" action="/logout" method="post" style="display: none;">
+          @csrf
       </form>
       <span class="tooltip">Logout</span>
     </li> 
@@ -82,4 +82,11 @@
     sidebar.classList.toggle('active');
   }
 
+</script>
+
+<script>
+  function logout() {
+      event.preventDefault(); // Mencegah pengaruh bawaan dari tag <a>
+      document.getElementById('logout-form').submit();
+  }
 </script>

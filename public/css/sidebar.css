@@ -169,7 +169,7 @@
     border-radius: 0.8rem;
 }
 
-.sidebar ul li form:hover button {
+.sidebar ul li .nav-link:hover{
     background-color: red;
     color: #000;
 }
