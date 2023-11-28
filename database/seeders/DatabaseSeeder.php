@@ -69,5 +69,36 @@ class DatabaseSeeder extends Seeder
             'mulai' => '2023-11-03',
             'selesai' => '2023-11-06'
         ]);
+
+        Project::create([
+            'nama_project' => 'Dump Project',
+            'deskripsi_project' => 'Project ini hanya sebuah uji coba',
+            'mulai' => '2023-10-31',
+            'selesai' => '2023-11-03'
+        ]);
+
+        Suggestion::create([
+            'project_id' => '2',
+            'user_id' => '1',
+            'suggestion' => 'Contoh suggestion'
+        ]);
+
+        Task::create([
+            'id_project' => '2',
+            'nama_task' => 'Dump task 1',
+            'deskripsi_task' => 'Deskripsi dump task 1',
+            'status' => '0',
+            'mulai' => '2023-10-31',
+            'selesai' => '2023-11-03'
+        ]);
+
+        Task::create([
+            'id_project' => '2',
+            'nama_task' => 'Dump task 2',
+            'deskripsi_task' => 'Deskripsi dump task 2',
+            'status' => '0',
+            'mulai' => '2023-11-03',
+            'selesai' => '2023-11-06'
+        ]);
     }
 }
