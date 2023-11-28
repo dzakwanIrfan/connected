@@ -2,31 +2,32 @@
 
 @section('container')
       @foreach ($projects as $project)
-          <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
           <div class="card">
-              <div class="position-relative">
-                <form action="/projects/{{ $project->id }}" method="post" class="d-inline" enctype="multipart/form-data">
-                  @method('delete')
-                  @csrf
-                  <button class="hapus position-absolute bg-danger px-2 py-1 text-white" onclick="return confirm('Are you sure?');">hapus</button>
-                </form>
-              </div>
-              <div class="position-relative">
-                <a href="/projects/{{ $project->id }}/edit" class="edit position-absolute bg-warning px-2 py-1 text-decoration-none text-white" style="left: 40px">
-                  edit
+            <div class="card-top">
+              <div class="card-edit">
+                <a href="/projects/{{ $project->id }}/edit" class="edit">
+                  <ion-icon name="create-outline" class="card-icon"></ion-icon>
                 </a>
               </div>
-              @if ($project->image)
-              <img src="{{ asset('storage/' . $project->image) }}" alt="foto_project" class="img-fluid"> 
+              <div class="card-delete">
+                <form action="/projects/{{ $project->id }}" method="post" class="delete-form" enctype="multipart/form-data">
+                  @method('delete')
+                  @csrf
+                  <button class="delete-button" onclick="return confirm('Are you sure?');"><ion-icon name="close-circle-outline" class="card-icon"></ion-icon></button>
+                </form>
+              </div>
+            </div>
+              <div class="card-img">
+                @if ($project->image)
+              <img src="{{ asset('storage/' . $project->image) }}" alt="foto_project" class="img-card"> 
               @else
-              <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="img-fluid">
+              <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="img-card">
               @endif
+              </div>
               <div class="card-body">
-                <h5 class="card-title"><a href="/projects/{{ $project->id }}/tasks" class="text-decoration-none text-dark">{{ $project->nama_project }}</a></h5> 
+                <h5 class="card-title"><a href="/projects/{{ $project->id }}/tasks">{{ $project->nama_project }}</a></h5> 
                 <p class="card-text">{{ $project->deskripsi_project }}</p>
               </div>
             </div>
-          </div>
-              
       @endforeach
 @endsection

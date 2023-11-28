@@ -1,4 +1,4 @@
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
   <div class="top">
     <div class="logo">
       <a href="/dashboard">
@@ -70,4 +70,5 @@
   projectlist.onclick = function(){
     sidebar.classList.toggle('active');
   }
+
 </script>

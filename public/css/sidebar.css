@@ -14,7 +14,7 @@
 }
 
 .sidebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     background: #000;
@@ -137,11 +137,15 @@
     padding: 0.4rem 1.2rem;
     line-height: 1.8rem;
     z-index: 20;
-    opacity: 0;
+    display: none;
 }
 
 .sidebar ul li a:hover ~ .tooltip {
-    opacity: 1;
+    display: block;
+}
+
+.sidebar.active ul li a:hover ~ .tooltip {
+    display: none;
 }
 
 .sidebar.active ul li .tooltip {

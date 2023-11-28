@@ -17,8 +17,45 @@
     margin: 1rem 1rem;
 }
 
+.kotak-right h1 {
+    margin-left: 20px;
+}
+
+.col {
+    display: flex;
+}
+
 .card {
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
     width: 400px;
     height: 500px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.card-top {
+    position: relative;
+    display: flex;
+    margin-left: 90%;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.img-card {
+    width: 400px;
+    height: 200px;
+    padding: 5px 20px;
+    align-items: center;
+}
+
+.card-body {
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.card-title a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
 }

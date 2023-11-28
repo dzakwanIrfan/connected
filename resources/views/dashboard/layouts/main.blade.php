@@ -13,6 +13,7 @@
 <div class="kotak">
     @include('dashboard.layouts.sidebar')
     <div class="kotak-right">
+      <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
       <main class="col">
         @yield('container')
       </main>
