@@ -40,4 +40,24 @@
         </form>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            var mulaiInput = document.getElementById('mulai');
+            var selesaiInput = document.getElementById('selesai');
+            
+            // Ubah string tanggal menjadi objek Date
+            var mulaiDate = new Date(mulaiInput.value);
+            var selesaiDate = new Date(selesaiInput.value);
+
+            // Periksa apakah tanggal selesai lebih awal dari tanggal mulai
+            if (selesaiDate < mulaiDate) {
+                alert('Tanggal Selesai harus lebih besar atau sama dengan Tanggal Mulai.');
+                event.preventDefault(); // Mencegah pengiriman formulir jika tanggal tidak valid
+            }
+        });
+    });
+</script>
 @endsection
