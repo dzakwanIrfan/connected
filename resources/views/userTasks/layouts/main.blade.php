@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Document</title>
+    <title>Add File</title>
+    <link rel="stylesheet" href="/css/addFile.css">
 </head>
 <body>
     @yield('container')
