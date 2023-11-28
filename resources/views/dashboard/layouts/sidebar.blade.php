@@ -45,7 +45,7 @@
       <span class="tooltip">User Management</span>
     </li>
     <li>
-      <a href="#" onclick="logout()" class="nav-link">
+      <a href="#" onclick="logout()" class="logout">
         <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
         <span class="text">Logout</span>
       </a>

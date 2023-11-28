@@ -169,7 +169,7 @@
     border-radius: 0.8rem;
 }
 
-.sidebar ul li .nav-link:hover{
+.sidebar ul li .logout:hover{
     background-color: red;
     color: #000;
 }
