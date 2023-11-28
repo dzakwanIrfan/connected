@@ -14,9 +14,9 @@
             <div class="container-foto">
                 <label for="profile-image-upload">
                     @if ($user->image)
-                    <img src="{{ asset('storage/' . $user->image) }}" alt="foto_project" class="img-card" width="200px"> 
+                        <img src="{{ asset('storage/' . $user->image) }}" alt="foto_project" class="img-card" style="width: 200px;"> 
                     @else
-                    <img src="https://source.unsplash.com/1200x400?{{ $user->nama_project }}" alt="" class="img-card">
+                        <img src="https://source.unsplash.com/1200x400?{{ $user->nama_project }}" alt="" class="img-card" style="width: 200px;">
                     @endif
                 </label>
             </div>

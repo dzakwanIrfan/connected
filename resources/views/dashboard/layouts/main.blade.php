@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/usermanagement.css">
   </head>
   <body>
 <div class="kotak">
