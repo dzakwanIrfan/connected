@@ -22,6 +22,7 @@
     width: 80px;
     padding: 0.4rem 0.8rem;
     transition: all 0.5s ease;
+    z-index: 20;
 }
 
 .sidebar.active ~ .kotak-right {
@@ -119,11 +120,11 @@
 }
 
 .sidebar ul li a .text {
-    opacity: 0;
+    display: none;
 }
 
 .sidebar.active ul li a .text {
-    opacity: 1;
+    display: block;
 }
 
 .sidebar ul li .tooltip {
@@ -131,7 +132,7 @@
     left: 125px;
     top: 50%;
     transform: translate(-50%, -50%);
-    box-shadow: 0 0.5rem 0.8 rem rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5);
     border-radius: 0.6rem;
     background-color: #ffff;
     padding: 0.4rem 1.2rem;

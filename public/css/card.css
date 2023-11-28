@@ -15,6 +15,7 @@
 
 .kotak-right {
     margin: 1rem 1rem;
+    z-index: 0;
 }
 
 .kotak-right h1 {
@@ -28,7 +29,7 @@
 .card {
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
     width: 400px;
-    height: 500px;
+    height: 400px;
     margin-left: 20px;
     margin-top: 20px;
 }
@@ -36,9 +37,9 @@
 .card-top {
     position: relative;
     display: flex;
-    margin-left: 90%;
+    margin-left: 44%;
     padding-right: 5px;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-bottom: 5px;
 }
 
@@ -57,5 +58,31 @@
 .card-title a {
     text-decoration: none;
     font-size: 20px;
+    color: #000;
+}
+
+.delete-button {
+    background-color: red;
+    width: 100px;
+    height: 30px;
+    border-radius: 10%;
+    border: none;
+    cursor: pointer;
+}
+
+.card-edit {
+    display: flex;
+    justify-content: center;
+    background-color: #146c94;
+    width: 100px;
+    height: 30px;
+    border-radius: 10%;
+    cursor: pointer;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.card-edit a {
+    text-decoration: none;
     color: #000;
 }
