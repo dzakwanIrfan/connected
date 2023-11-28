@@ -12,7 +12,11 @@
         @endcan
         <div class="sub-container">
             <div class="container-foto">
-                <img src="https://source.unsplash.com/500x500?profile" class="profile-image">
+                @if ($user->image)
+                <img src="{{ asset('storage/' . $user->image) }}" alt="foto_project" class="img-card"> 
+                @else
+                <img src="https://source.unsplash.com/1200x400?{{ $user->nama_project }}" alt="" class="img-card">
+                @endif
                 @can('edit-profile', $user->id)
                     <a href="/users/{{ $user->id }}/edit" class="edit-link">Edit</a>
                 @endcan

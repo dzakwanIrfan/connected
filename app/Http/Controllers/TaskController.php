@@ -9,6 +9,7 @@ use App\Models\UserTask;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateTaskRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rules\Can;
 
 class TaskController extends Controller
 {
@@ -137,8 +138,10 @@ class TaskController extends Controller
 
         Task::where('id', $task->id)->update($validatedData);
         
-        $task->status = $request->input('status');
-        $task->save();
+        if(auth()->user()->role === 'staff'){
+            $task->status = $request->input('status');
+            $task->save();
+        }
 
         return redirect("/projects/$id/tasks");
     }

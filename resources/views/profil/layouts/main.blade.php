@@ -10,5 +10,17 @@
     <div>
       @yield('container')
     </div>
+    <script>
+      document.getElementById('profile-image-upload').addEventListener('change', function(e) {
+          var img = document.querySelector('.img-card');
+          var reader = new FileReader();
+      
+          reader.onloadend = function() {
+              img.src = reader.result;
+          }
+      
+          reader.readAsDataURL(e.target.files[0]);
+      });
+      </script>
   </body>
 </html>

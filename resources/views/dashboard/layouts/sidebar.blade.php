@@ -49,7 +49,7 @@
         <span class="text">Logout</span>
       </form>
       <span class="tooltip">Logout</span>
-    </li>
+    </li> 
   </ul>
  </div>
  <div class="projectlist">

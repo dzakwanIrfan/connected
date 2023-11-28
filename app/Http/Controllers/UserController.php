@@ -8,6 +8,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -71,7 +72,17 @@ class UserController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'email'=> 'required',
+            'image' => 'image|file|max:1024',
         ]);
+
+        $data = $request->all();
+
+        if ($request->file('image')) {
+            if ($request->oldImage) {
+                Storage::delete($request->oldImage);
+            }
+            $validated['image'] = $request->file('image')->store('image');
+        }
 
         $validated['password'] = Hash::make($request->password);
         User::where('id', $user->id)->update($validated);

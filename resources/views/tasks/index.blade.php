@@ -109,9 +109,7 @@
     @endcan
 
     @can('owner')
-      @foreach ($tasks as $task)
         <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}">Suggestions</a>
-      @endforeach
     @endcan
 
     <script>

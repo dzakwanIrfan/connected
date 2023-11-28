@@ -12,12 +12,19 @@
         @endcan
         <div class="sub-container">
             <div class="container-foto">
-                <img src="https://source.unsplash.com/500x500?profile" class="profile-image">
+                <label for="profile-image-upload">
+                    @if ($user->image)
+                    <img src="{{ asset('storage/' . $user->image) }}" alt="foto_project" class="img-card" width="200px"> 
+                    @else
+                    <img src="https://source.unsplash.com/1200x400?{{ $user->nama_project }}" alt="" class="img-card">
+                    @endif
+                </label>
             </div>
             <div class="container-profil">
-                <form action="/users/{{ $user->id }}" method="post">
+                <form action="/users/{{ $user->id }}" method="post" enctype="multipart/form-data">
                     @method('put')
                     @csrf
+                    <input type="file" id="profile-image-upload" name="image" style="display: none;">
                     <table class="profile-table">
                         <tr>
                             <td>Nama</td>
