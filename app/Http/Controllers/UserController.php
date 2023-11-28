@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+use function Laravel\Prompts\alert;
+
 class UserController extends Controller
 {
     /**
@@ -71,11 +73,8 @@ class UserController extends Controller
     {   
         $validated = $request->validate([
             'name' => 'required',
-            'email'=> 'required',
-            'image' => 'image|file|max:1024',
+            'email'=> 'required'
         ]);
-
-        $data = $request->all();
 
         if ($request->file('image')) {
             if ($request->oldImage) {

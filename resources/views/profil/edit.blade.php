@@ -12,13 +12,11 @@
         @endcan
         <div class="sub-container">
             <div class="container-foto">
-                <label for="profile-image-upload">
-                    @if ($user->image)
-                    <img src="{{ asset('storage/' . $user->image) }}" alt="foto_project" class="img-card" width="200px"> 
-                    @else
-                    <img src="https://source.unsplash.com/1200x400?{{ $user->nama_project }}" alt="" class="img-card">
-                    @endif
-                </label>
+                @if ($user->image)
+                    <img src="{{ asset('storage/' . $user->image) }}" alt="foto_user" class="img-card" id="user-image"> 
+                @else
+                    <img src="https://source.unsplash.com/1200x400?profil" alt="" class="img-card" id="user-image">
+                @endif
             </div>
             <div class="container-profil">
                 <form action="/users/{{ $user->id }}" method="post" enctype="multipart/form-data">
@@ -29,17 +27,17 @@
                         <tr>
                             <td>Nama</td>
                             <td>:</td>
-                            <td><input type="text" name="name" value="{{ old('name', $user->name) }}"  class="input"></td>
+                            <td><input type="text" name="name" value="{{ old('name', $user->name) }}"  class="input" required></td>
                         </tr>
                         <tr>
                             <td>Email</td>
                             <td>:</td>
-                            <td><input type="text" name="email" value="{{ old('email', $user->email) }}" class="input"></td>
+                            <td><input type="text" name="email" value="{{ old('email', $user->email) }}" class="input" required></td>
                         </tr>
                         <tr>
                             <td>Password</td>
                             <td>:</td>
-                            <td><input type="password" name="password" value="" placeholder="New password" class="input"></td>
+                            <td><input type="password" name="password" value="" placeholder="New password" class="input" required></td>
                         </tr>
                         <tr>
                             <td></td>
@@ -51,4 +49,14 @@
             </div>
         </div>
     </div>
+
+    <script>
+        var userImage = document.getElementById('user-image');
+
+        userImage.addEventListener('click', function() {
+            document.getElementById('profile-image-upload').click();
+        });
+      </script>
 @endsection
+
+

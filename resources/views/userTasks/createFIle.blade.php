@@ -7,11 +7,8 @@
       alert(alertMessage);
   }
 </script>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <div class="container">
         <h1>Tambah file untuk task {{ $task->nama_task }}, user: {{ auth()->user()->name }}</h1>
-    </div>   
-    
-    <div class="col-lg-8">
         <form action="/file" method="post" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="task_id" value="{{ $task->id }}">

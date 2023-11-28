@@ -169,7 +169,7 @@
     border-radius: 0.8rem;
 }
 
-.sidebar ul li form:hover button {
+.sidebar ul li .logout:hover{
     background-color: red;
     color: #000;
 }
@@ -237,6 +237,7 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 100%;
+    object-fit: cover;
 }
 
 .side-img {

@@ -13,7 +13,7 @@
       @if (auth()->user()->image)
         <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="foto_project" class="user-img"> 
       @else
-        <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="user-img">
+        <img src="https://source.unsplash.com/1200x400?profil" alt="" class="user-img">
       @endif
       <div class="role">
         <p class="text {{ Request::is('dashboard/categories*') ? '' : 'text-black' }}">{{ auth()->user()->name }}</p>
@@ -45,12 +45,12 @@
       <span class="tooltip">User Management</span>
     </li>
     <li>
-      <form action="/logout" method="post">
-        @csrf
-        <button type="submit" class="nav-link">
-          <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
-        </button>
+      <a href="#" onclick="logout()" class="logout">
+        <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
         <span class="text">Logout</span>
+      </a>
+      <form id="logout-form" action="/logout" method="post" style="display: none;">
+          @csrf
       </form>
       <span class="tooltip">Logout</span>
     </li> 
@@ -82,4 +82,11 @@
     sidebar.classList.toggle('active');
   }
 
+</script>
+
+<script>
+  function logout() {
+      event.preventDefault(); // Mencegah pengaruh bawaan dari tag <a>
+      document.getElementById('logout-form').submit();
+  }
 </script>

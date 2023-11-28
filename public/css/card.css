@@ -30,10 +30,9 @@
 .card {
     box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.5);
     width: 400px;
-    height: 400px;
+    min-height: 400px;
     margin-left: 20px;
     margin-top: 20px;
-    overflow: hidden;
 }
 
 .card-top {
@@ -50,6 +49,7 @@
     height: 200px;
     padding: 5px 20px;
     align-items: center;
+    object-fit: cover;
 }
 
 .card-body {
