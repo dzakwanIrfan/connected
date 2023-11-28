@@ -3,7 +3,7 @@
 @section('container')
 <div class="container">
     <div class="suggest">
-        <form action="/suggestions" method="post">
+        <form action="/suggestions" method="post" id="suggestionForm">
             @csrf
             <label for="saran"><h1>Suggestion</h1></label>
             <hr>
@@ -16,4 +16,10 @@
         </form>
     </div>
 </div>
+
+<script>
+    document.getElementById('suggestionForm').addEventListener('submit', function() {
+      alert('Suggestion berhasil dikirim!');
+    });
+  </script>
 @endsection
