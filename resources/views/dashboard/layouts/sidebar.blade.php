@@ -13,7 +13,7 @@
       @if (auth()->user()->image)
         <img src="{{ asset('storage/' . auth()->user()->image) }}" alt="foto_project" class="user-img"> 
       @else
-        <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="user-img">
+        <img src="https://source.unsplash.com/1200x400?profil" alt="" class="user-img">
       @endif
       <div class="role">
         <p class="text {{ Request::is('dashboard/categories*') ? '' : 'text-black' }}">{{ auth()->user()->name }}</p>

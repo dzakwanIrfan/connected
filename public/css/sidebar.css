@@ -228,6 +228,7 @@
     width: 2.5rem;
     height: 2.5rem;
     border-radius: 100%;
+    object-fit: cover;
 }
 
 .side-img {
