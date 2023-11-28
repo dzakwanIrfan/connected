@@ -3,7 +3,7 @@
     <div class="logo">
       <a href="/dashboard">
         <img src="/img/connected.png" class="side-img">
-        <span>Connected</span>
+        <span class="side-logo">Connected</span>
       </a>
     </div>
     <ion-icon name="menu-outline" id="btn"></ion-icon>

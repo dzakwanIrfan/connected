@@ -17,7 +17,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: #000;
+    background: #146c94;
     height: 100vh;
     width: 80px;
     padding: 0.4rem 0.8rem;
@@ -64,6 +64,14 @@
     opacity: 1;
 }
 
+.user {
+    margin-left: 6px;
+}
+
+.sidebar.active .user {
+    margin-left: 0;
+}
+
 .user a {
     display: flex;
     align-items: center;
@@ -107,7 +115,7 @@
 }
 
 .sidebar ul li a:hover {
-    background-color: #ffff;
+    background-color: #feff86;
     color: #000;
 }
 
@@ -162,7 +170,7 @@
 }
 
 .sidebar ul li form:hover button {
-    background-color: #ffff;
+    background-color: red;
     color: #000;
 }
 
@@ -174,7 +182,7 @@
     line-height: 50px;
     border: none;
     border-color: transparent;
-    background-color: #000;
+    background-color: #146c94;
     color: #ffff;
 }
 
@@ -223,6 +231,11 @@
 }
 
 .side-img {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 20px;
+}
+
+.side-logo {
+    padding-left: 5px;
 }
