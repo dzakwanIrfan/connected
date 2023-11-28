@@ -22,13 +22,13 @@
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->role }}</td>
-                    <td>
-                        <a href="/users/{{ $user->id }}" class="badge bg-success"><i class="bi bi-eye"></i></a>
-                        <a href="/users/{{ $user->id }}/edit" class="badge bg-warning"><i class="bi bi-pencil"></i></a>
-                        <form action="/users/{{ $user->id }}" method="post" class="d-inline">
+                    <td style="display: flex; gap: 5px">
+                        <a href="/users/{{ $user->id }}" class="badge bg-success" style="color: black; background-color: green; padding: 5px; border-radius: 5px"><ion-icon name="eye-outline"></ion-icon></a>
+                        <a href="/users/{{ $user->id }}/edit" class="badge bg-warning"><ion-icon name="create-outline" style="color: black; background-color: yellow; padding: 5px; border-radius: 5px"></ion-icon></a>
+                        <form action="/users/{{ $user->id }}" method="post" class="d-inline" style="display: inline; cursor: pointer;">
                         @method('delete')
                         @csrf
-                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?');"><i class="bi bi-x-circle"></i></button>
+                        <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?');" style="cursor: pointer; border: none; background-color: red; color: black; padding: 5px; border-radius: 5px"><ion-icon name="trash-outline"></ion-icon></button>
                         </form>
                     </td>
                 </tr>
