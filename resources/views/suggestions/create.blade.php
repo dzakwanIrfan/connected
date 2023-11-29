@@ -12,7 +12,6 @@
             <input type="hidden" name="project_id" value="{{ $project }}">
             <textarea name="suggestion" id="saran" placeholder="Enter a message..." required maxlength="300"></textarea>
             <button type="submit">Send</button>
-            <a href="/projects/{{ $project }}/tasks"><p style="text-align: right;" class="button-link">Back</p></a>
         </form>
     </div>
 </div>
