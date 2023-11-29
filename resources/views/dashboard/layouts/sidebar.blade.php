@@ -128,9 +128,4 @@
     var dropdownMenu = event.target.parentNode.querySelector('.dropdown-menu');
     dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
   }
-
-  function toggleSidebar() {
-  var sidebar = document.querySelector('.sidebar');
-  sidebar.classList.toggle('open');
-  }
 </script>

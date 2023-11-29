@@ -50,6 +50,10 @@
     color: white;
 }
 
+.atas {
+    padding: 10px;
+}
+
 .button-link:hover {
     background-color: #FEFF86;
     color: black;

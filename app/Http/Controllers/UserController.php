@@ -40,8 +40,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        
-        User::create($request->all());
+        $validated = $request->validate([
+            'name' => 'required',
+            'email'=> 'required',
+            'password' => 'required',
+            'role' => 'required',
+        ]);
+
+        if ($request->file('image')) {
+            $validated['image'] = $request->file('image')->store('images');
+        }
+
+        User::create($validated);
 
         return redirect("/users");
     }

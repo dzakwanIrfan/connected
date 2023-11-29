@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Add File</title>
+    <title>Connected</title>
     <link rel="stylesheet" href="/css/addFile.css">
 </head>
 <body>

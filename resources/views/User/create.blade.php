@@ -1,6 +1,6 @@
-@extends('dashboard.layouts.main')
 
-@section('container')
+
+{{-- @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Add new user</h1>
     </div>
@@ -40,4 +40,66 @@
             <button type="submit" class="btn btn-primary">Add user</button>
         </form>
     </div>
+@endsection --}}
+
+@extends('profil.layouts.main')
+
+@section('container')
+    <div class="container">
+        <h1 class="page-title">Create new Profile</h1>
+        <hr>
+        <div class="sub-container">
+            <div class="container-foto">
+              <img src="https://source.unsplash.com/1200x400?profil" alt="" class="img-card" id="user-image">
+            </div>
+            <div class="container-profil">
+                <form action="/users" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" id="profile-image-upload" name="image" style="display: none;">
+                    <table class="profile-table">
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td><input type="text" name="name" class="input" required></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>:</td>
+                            <td><input type="text" name="email" class="input" required></td>
+                        </tr>
+                        <tr>
+                            <td><label for="role" class="form-label">Role</label></td>
+                            <td>:</td>
+                            <td>
+                              <select class="form-select" name="role">
+                                <option value="staff">Staff</option>
+                                <option value="owner">Owner</option>
+                              </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Password</td>
+                            <td>:</td>
+                            <td><input type="password" name="password" value="" placeholder="New password" class="input" required></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td><button type="submit" class="edit">Create</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var userImage = document.getElementById('user-image');
+
+        userImage.addEventListener('click', function() {
+            document.getElementById('profile-image-upload').click();
+        });
+      </script>
 @endsection
+
+

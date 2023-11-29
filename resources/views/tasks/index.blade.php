@@ -78,7 +78,7 @@
             @can('staff')
               <a href="/user-task/file/{{ $task->id }}" class="edit-task-btn"><ion-icon name="document-outline" style="color: white;"></ion-icon></a>
             @endcan
-            <a href="/tasks/{{ $task->id }}/edit" class="edit-task-btn" style="background-color: yellow;">
+            <a href="/tasks/{{ $task->id }}/edit" class="edit-task-btn" style="background-color: yellow; margin-right:5px;">
               <ion-icon name="create-outline" style="color: black;"></ion-icon>
             </a>
             @can('owner')    
