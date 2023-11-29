@@ -169,7 +169,7 @@
     border-radius: 0.8rem;
 }
 
-.sidebar ul li .logout:hover{
+.sidebar ul li .logout:hover {
     background-color: red;
     color: #000;
 }
@@ -198,6 +198,10 @@
     opacity: 1;
 }
 
+.projectlist {
+    padding-bottom: 20px;
+}
+
 .projectlist p {
     color: #ffff;
     opacity: 1;
@@ -210,7 +214,7 @@
 
 .sidebar.active .projectlist {
     overflow-y: auto;
-    max-height: 60vh;
+    max-height: 40vh;
 }
 
 .sidebar.active .projectlist::-webkit-scrollbar {
