@@ -133,3 +133,10 @@ body {
     background-color: var(--thicc);
 }
   
+.form-select {
+    width: 20%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #19A7CE;
+    font-size: 14px;
+}
