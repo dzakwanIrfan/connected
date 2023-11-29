@@ -4,12 +4,6 @@
     <div class="container">
         <h1 class="page-title">{{ $user->name }} Profile</h1>
         <hr>
-        @can('staff')    
-            <a href="/workbench" class="button-back">Kembali</a>
-        @endcan
-        @can('owner')
-            <a href="/users" class="button-back">Kembali</a>
-        @endcan
         <div class="sub-container">
             <div class="container-foto">
                 @if ($user->image)
@@ -36,5 +30,11 @@
                 </table>
             </div>
         </div>
+        @can('staff')    
+            <a href="/workbench" class="button-back">Kembali</a>
+        @endcan
+        @can('owner')
+            <a href="/users" class="button-back">Kembali</a>
+        @endcan
     </div>
 @endsection

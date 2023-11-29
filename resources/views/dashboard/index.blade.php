@@ -6,17 +6,18 @@
             <div class="card-top">
               <div class="card-edit">
                 <a href="/projects/{{ $project->id }}/edit" class="edit">
-                  Edit
+                  <ion-icon name="create-outline"></ion-icon>
                 </a>
               </div>
               <div class="card-delete">
                 <form action="/projects/{{ $project->id }}" method="post" class="delete-form" enctype="multipart/form-data">
                   @method('delete')
                   @csrf
-                  <button class="delete-button" onclick="return confirm('Are you sure?');">Delete</button>
+                  <button class="delete-button" onclick="return confirm('Are you sure?');"><ion-icon name="trash-outline"></ion-icon></button>
                 </form>
               </div>
             </div>
+            <a href="/projects/{{ $project->id }}/tasks">
               <div class="card-img">
               @if ($project->image)
               <img src="{{ asset('storage/' . $project->image) }}" alt="foto_project" class="img-card"> 
@@ -24,6 +25,7 @@
               <img src="https://source.unsplash.com/1200x400?{{ $project->nama_project }}" alt="" class="img-card">
               @endif
               </div>
+            </a>
               <div class="card-body">
                 <h5 class="card-title"><a href="/projects/{{ $project->id }}/tasks">{{ $project->nama_project }}</a></h5> 
                 <p class="card-text">{{ $project->deskripsi_project }}</p>

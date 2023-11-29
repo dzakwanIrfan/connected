@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Create new task</h1>
+        <h1 class="h2">Edit task</h1>
     </div>
 
     <div class="col-lg-8">
@@ -130,8 +130,10 @@
       } else {
         slider.style.background = 'green';
       }
+  </script>
 
-      document.addEventListener('DOMContentLoaded', function() {
+  <script>
+          document.addEventListener('DOMContentLoaded', function() {
           var form = document.querySelector('form');
           form.addEventListener('submit', function(event) {
               var mulaiInput = document.getElementById('mulai');

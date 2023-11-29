@@ -23,6 +23,7 @@
   </div>
 <div class="sidebar-nav">
   <ul>
+    @can('owner')
     <li>
       <a href="/dashboard">
         <span class="icon"><ion-icon name="grid-outline"></ion-icon></span>
@@ -30,6 +31,16 @@
       </a>
       <span class="tooltip">Dashboard</span>
     </li>
+    @endcan
+    @can('staff')
+    <li>
+      <a href="/workbench">
+        <span class="icon"><ion-icon name="grid-outline"></ion-icon></span>
+        <span class="text">Workbench</span>
+      </a>
+      <span class="tooltip">Workbench</span>
+    </li>
+    @endcan
     @can('owner')
     <li>
       <a href="/projects/create">
@@ -56,10 +67,28 @@
       </form>
       <span class="tooltip">Logout</span>
     </li> 
+    <li class="dropdown">
+      <a href="#" onclick="toggleDropdown(event)" id="list">
+        <span class="icon"><ion-icon name="documents-outline"></ion-icon></span>
+        <span class="text">Lists</span>
+        <ion-icon name="caret-down-outline" class="caret-icon"></ion-icon>
+      </a>
+      <span class="tooltip">Lists</span>
+    
+      <ul class="dropdown-menu">
+        @foreach ($projects as $project)
+          <li>
+            <a href="/projects/{{ $project->id }}/tasks">
+              {{ $project->nama_project }}
+            </a>
+          </li>
+        @endforeach
+      </ul>
+    </li>
   </ul>
  </div>
- <div class="projectlist">
-    <p id="projectlist">Project Lists</p>
+ {{-- <div class="projectlist">
+    <p id="projectlist">Lists</p>
  @foreach ($projects as $project)
         <ul class="side flex-column">
             <li class="side-item">
@@ -69,7 +98,7 @@
             </li>
         </ul>
         @endforeach
- </div>
+ </div> --}}
  </div>
 <script>
   let btn=document.querySelector('#btn')
@@ -90,5 +119,18 @@
   function logout() {
       event.preventDefault(); // Mencegah pengaruh bawaan dari tag <a>
       document.getElementById('logout-form').submit();
+  }
+</script>
+
+<script>
+  function toggleDropdown(event) {
+    event.preventDefault();
+    var dropdownMenu = event.target.parentNode.querySelector('.dropdown-menu');
+    dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
+  }
+
+  function toggleSidebar() {
+  var sidebar = document.querySelector('.sidebar');
+  sidebar.classList.toggle('open');
   }
 </script>

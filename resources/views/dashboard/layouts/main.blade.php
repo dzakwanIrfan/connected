@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="/css/card.css">
     <link rel="stylesheet" href="/css/usermanagement.css">
   </head>
-  <body>
+  <body style="background-color: #b0daff">
 <div class="kotak">
     @include('dashboard.layouts.sidebar')
     <div class="kotak-right">
       <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
+      <hr>
       <main class="col">
         @yield('container')
       </main>

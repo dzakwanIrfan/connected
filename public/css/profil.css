@@ -55,7 +55,7 @@ hr {
 
 body {
     background-color: var(--back);
-    color: var(--thicc);
+    color: black;
 }
 
 .page-title {
@@ -71,11 +71,11 @@ body {
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s ease-in-out;
 }
 
 .button-back:hover {
-    background-color: var(--thicc);
+    background-color: var(--minor);
+    color: black;
 }
 
 .edit-link {
@@ -85,6 +85,8 @@ body {
     text-decoration: none;
     color: var(--thicc);
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: larger;
 }
 
 .profile-table {

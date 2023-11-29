@@ -3,8 +3,8 @@
 @section('container')
 <div class="mt-3">
     <div class="mt-3 link-container">
+        <a href="/dashboard" class="button-link back">Back to Dashboard</a>
         <a href="/users/create/" class="button-link">Add new User</a>
-        <a href="/dashboard" class="button-link">Back to Dashboard</a>
     </div>
     <table class="content-table">
         <thead>

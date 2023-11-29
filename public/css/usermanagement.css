@@ -27,6 +27,9 @@
 .content-table tbody tr:nth-of-type(even) {
     background-color: #DCDCDC;
 }
+.content-table tbody tr:nth-of-type(odd) {
+    background-color: white;
+}
 
 .content-table tbody tr:last-of-type {
     border-bottom: 2px solid #19A7CE;
@@ -42,6 +45,11 @@
     text-align: center;
 }
 
+.back {
+    background-color: black;
+    color: white;
+}
+
 .button-link:hover {
     background-color: #FEFF86;
     color: black;
@@ -49,6 +57,11 @@
 
 .link-container {
     gap: 20px; 
+}
+
+hr {
+    border-top: 3px solid #FEFF86;
+    margin: 10px auto;
 }
 
 @media (max-width: 880px) {

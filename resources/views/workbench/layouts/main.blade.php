@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/carduser.css">
     <link rel="stylesheet" href="/css/sidebar.css">
   </head>
-  <body>
+  <body style="background-color: #b0daff">
   @include('dashboard.layouts.sidebar')
     <div class="kotak-right">
       <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
