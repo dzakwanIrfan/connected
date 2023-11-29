@@ -4,19 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>workbench</title>
-    <link rel="stylesheet" href="/css/card.css">
+    <link rel="stylesheet" href="/css/carduser.css">
     <link rel="stylesheet" href="/css/sidebar.css">
   </head>
   <body>
-    {{-- <div class="kotak">
-      @include('dashboard.layouts.sidebar')
-      <div class="kotak-right">
-        <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
-        <main class="col">
-          @yield('container')
-        </main>
-    </div> 
-  </div>  --}}
   @include('dashboard.layouts.sidebar')
     <div class="kotak-right">
       <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
