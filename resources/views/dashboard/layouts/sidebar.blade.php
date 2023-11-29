@@ -30,6 +30,7 @@
       </a>
       <span class="tooltip">Dashboard</span>
     </li>
+    @can('owner')
     <li>
       <a href="/projects/create">
       <span class="icon"><ion-icon name="duplicate-outline"></ion-icon></span>
@@ -44,6 +45,7 @@
       </a>
       <span class="tooltip">User Management</span>
     </li>
+    @endcan
     <li>
       <a href="#" onclick="logout()" class="logout">
         <span class="icon"><ion-icon name="log-in-outline"></ion-icon></span>
