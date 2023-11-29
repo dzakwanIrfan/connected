@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connected | Workspcae</title>
+    <title>Connected | Workspace</title>
     <link rel="icon" href="/img/connected.png">
     <link rel="stylesheet" href="/css/sidebar.css">
     <link rel="stylesheet" href="/css/card.css">
