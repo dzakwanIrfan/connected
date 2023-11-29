@@ -6,6 +6,7 @@
     <title>Suggestion Page</title>
     <link rel="stylesheet" href="/css/suggestion.css">
     <link rel="stylesheet" href="/css/usermanagement.css">
+    <link rel="icon" href="/img/connected.png">
 </head>
 <body>
     @yield('container')

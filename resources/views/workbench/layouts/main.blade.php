@@ -6,6 +6,7 @@
     <title>Workbench</title>
     <link rel="stylesheet" href="/css/carduser.css">
     <link rel="stylesheet" href="/css/sidebar.css">
+    <link rel="icon" href="/img/connected.png">
   </head>
   <body style="background-color: #b0daff">
   @include('dashboard.layouts.sidebar')
