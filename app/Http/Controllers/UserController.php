@@ -110,8 +110,15 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        UserTask::destroy($user->id);
+        $userTasks = UserTask::where('user_id', $user->id)->get();
+
+        foreach ($userTasks as $userTask) {
+            UserTask::destroy($userTask->id);
+        }
+
         User::destroy($user->id);
+
         return redirect('/users');
     }
+
 }
