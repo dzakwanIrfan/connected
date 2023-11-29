@@ -67,17 +67,17 @@
       </form>
       <span class="tooltip">Logout</span>
     </li> 
-    <li class="dropdown">
-      <a href="#" onclick="toggleDropdown(event)" id="list">
-        <span class="icon"><ion-icon name="documents-outline"></ion-icon></span>
-        <span class="text">Lists</span>
-        <ion-icon name="caret-down-outline" class="caret-icon"></ion-icon>
-      </a>
-      <span class="tooltip">Lists</span>
     
-      <ul class="dropdown-menu">
+    <li class="dropdown">
+      <a class="select">
+        <span class="selected"><ion-icon name="layers-outline"></ion-icon></span>
+        <span class="text" style="margin-right:95px;">Lists</span>
+        <span class="caret"></span>
+      </a>
+    
+      <ul class="menu">
         @foreach ($projects as $project)
-          <li>
+          <li class="active">
             <a href="/projects/{{ $project->id }}/tasks">
               {{ $project->nama_project }}
             </a>
@@ -112,7 +112,6 @@
   projectlist.onclick = function(){
     sidebar.classList.toggle('active');
   }
-
 </script>
 
 <script>
@@ -123,9 +122,36 @@
 </script>
 
 <script>
-  function toggleDropdown(event) {
-    event.preventDefault();
-    var dropdownMenu = event.target.parentNode.querySelector('.dropdown-menu');
-    dropdownMenu.style.display = dropdownMenu.style.display === 'none' ? 'block' : 'none';
-  }
+  const dropdowns = document.querySelectorAll('.dropdown');
+
+  dropdowns.forEach(dropdown => {
+      const select = dropdown.querySelector('.select');
+      const caret = dropdown.querySelector('.caret');
+      const menu = dropdown.querySelector('.menu');
+      const options = dropdown.querySelectorAll('.menu li');
+      const selected = dropdown.querySelector('.selected');
+      const sidebar = document.querySelector('.sidebar');
+
+      select.addEventListener('click', () => {
+          dropdown.classList.toggle('select-clicked');
+          caret.classList.toggle('caret-rotate');
+          menu.classList.toggle('menu-open');
+          sidebar.classList.toggle('active');
+      });
+
+      options.forEach(option => {
+          option.addEventListener('click', () => {
+              sidebar.classList.remove('active');
+              selected.innerHTML = option.innerText;
+              select.classList.remove('select-clicked');
+              caret.classList.remove('caret-rotate');
+              menu.classList.remove('menu-open');
+
+              options.forEach(option => {
+                  option.classList.remove('active');
+              });
+          option.classList.add('active');
+        });
+      });
+    });
 </script>

@@ -101,13 +101,13 @@
   </div>
     @can('staff')
       @if (isset($tasks) && $tasks->isNotEmpty() && $tasks->first()->id_project)
-        <a href="/suggestions/create?id_project={{ $tasks->first()->id_project }}">Add suggestion</a>
+        <a href="/suggestions/create?id_project={{ $tasks->first()->id_project }}" class="button-link">Add suggestion</a>
       @endif
 
     @endcan
 
     @can('owner')
-        <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}">Suggestions</a>
+        <a href="/suggestions/{{ $task->id_project }}?id_project={{ $task->id_project }}" class="button-link">Suggestions</a>
     @endcan
 
     <script>

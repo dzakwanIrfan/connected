@@ -46,7 +46,7 @@
 
 @section('container')
     <div class="container">
-        <h1 class="page-title">Create new Profile</h1>
+        <h1 class="page-title">Create New Profile</h1>
         <hr>
         <div class="sub-container">
             <div class="container-foto">

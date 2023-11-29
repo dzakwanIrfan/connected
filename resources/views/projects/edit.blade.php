@@ -2,7 +2,7 @@
 
 @section('container')
 <div class="row justify-content-center">
-    <h1 class="my-5">New Project Form</h1>
+    <h1 class="my-5">Edit Project Form</h1>
     <div class="col col-lg-8">
         <form action="/projects/{{ $project->id }}" method="post" enctype="multipart/form-data">
             @method('put')

@@ -22,6 +22,6 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="/projects/{{ $suggest->project_id }}/tasks"><p>Back</p></a>
+        <a href="/projects/{{ $suggest->project_id }}/tasks" class="button-link"><p>Back</p></a>
     </center>       
 @endsection
