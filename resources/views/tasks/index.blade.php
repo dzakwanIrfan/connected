@@ -76,7 +76,7 @@
         
           <td>
             @can('staff')
-              <a href="/user-task/file/{{ $task->id }}">add file</a>
+              <a href="/user-task/file/{{ $task->id }}" class="edit-task-btn"><ion-icon name="document-outline"></ion-icon></a>
             @endcan
             <a href="/tasks/{{ $task->id }}/edit" class="badge bg-warning">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
