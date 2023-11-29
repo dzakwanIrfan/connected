@@ -1,16 +1,6 @@
 @extends('workbench.layouts.main')
 
 @section('container')
-  <form action="/logout" method="post">
-    @csrf
-    <button type="submit" class="">Logout</button>
-  </form>
-  <div class="btn ">
-    <a href="/users/{{ $user->id }}" class="">{{ $user->name }}</a>
-  </div>
-  <div class="">
-  <h1 class="h2">Welcome back, {{ auth()->user()->name }}</h1>
-  </div>
   <div class="col">
   @foreach ($projects as $project)
   <div class="">
