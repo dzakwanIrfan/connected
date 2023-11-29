@@ -13,6 +13,8 @@
           <div class="card-body">
             <h5 class="card-title"><a href="/projects/{{ $project->id }}/tasks" class="text-decoration-none text-dark">{{ $project->nama_project }}</a></h5> 
             <p class="card-text">{{ $project->deskripsi_project }}</p>
+            <p class="card-date">Dimulai dari: <br>{{ $project->mulai }} <br></p>
+                <p class="card-date">Selesai: <br> {{ $project->selesai }} <br></p>
           </div>
         </div>
   </div>
