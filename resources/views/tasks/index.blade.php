@@ -51,7 +51,7 @@
                 @foreach ($taskUsers[$task->id] as $user)
                     <a href="/users/{{ $user->id }}" class="text-black text-decoration-none">{{ $user->name }}</a>
                     @can('owner')
-                      <form action="/user-task/{{ $user->id }}" method="post" class="d-inline">
+                      <form action="/user-task/{{ $user->id }}?task={{ $task->id }}&user={{ $user->id }}" method="post" class="d-inline">
                       @method('delete')
                       @csrf
                         <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?');" type="submit">

@@ -85,11 +85,31 @@ class UserTaskController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(UserTask $userTask)
+    public function destroy(Request $request)
     {
+        // Mendapatkan nilai user dan task dari query string
+        $userId = $request->input('user');
+        $taskId = $request->input('task');
+
+        // Mencari instance model UserTask berdasarkan kondisi
+        $userTask = UserTask::where('user_id', $userId)->where('task_id', $taskId)->first();
+
+        // Memeriksa apakah UserTask ditemukan
+        if (!$userTask) {
+            return redirect("/dashboard")->with('error', 'UserTask not found');
+        }
+
+        // Melakukan penghapusan berdasarkan ID UserTask
+        $deleted = UserTask::destroy($userTask->id);
+
+        if (!$deleted) {
+            return redirect("/dashboard")->with('error', 'Failed to delete UserTask');
+        }
+
         $task = $userTask->tasks;
         $idProject = $task->id_project;
-        $userTask->delete();
-        return redirect("/projects/$idProject/tasks");
+
+        return redirect("/projects/$idProject/tasks")->with('success', 'UserTask deleted successfully');
     }
+
 }
